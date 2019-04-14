@@ -1,3 +1,5 @@
+^\.travis\.yml$
+^LICENSE\.md$
 ^packrat/
 ^\.Rprofile$
 ^.*\.Rproj$
