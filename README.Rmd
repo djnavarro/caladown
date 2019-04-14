@@ -1,0 +1,19 @@
+---
+title: "slumstyle"
+author: "Danielle Navarro"
+date: "14 April 2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[![Travis build status](https://travis-ci.org/djnavarro/slumstyle.svg?branch=master)](https://travis-ci.org/djnavarro/slumstyle)
+
+Provides ggplot2 themes suitable for use in conjunction with the slum blogdown theme
+
+```{r install}
+# devtools::install_github("djnavarro/slumstyle")
+library("slumstyle")
+```
