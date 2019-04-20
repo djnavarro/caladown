@@ -9,13 +9,13 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[![Travis build status](https://travis-ci.org/djnavarro/slumstyle.svg?branch=master)](https://travis-ci.org/djnavarro/slumstyle)
+[![Travis build status](https://travis-ci.org/djnavarro/slumdown.svg?branch=master)](https://travis-ci.org/djnavarro/slumdown)
 
 An R package to accompany the [slum theme for blogdown](https://github.com/djnavarro/hugo-slum). 
 
 ```{r install}
-# devtools::install_github("djnavarro/slumstyle")
-library("slumstyle")
+# devtools::install_github("djnavarro/slumdown")
+library("slumdown")
 ```
 
 At present it contains only one function `theme_slum()` which provides ggplot2 themes that are consistent with the different slum colour schemes.

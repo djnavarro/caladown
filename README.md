@@ -4,14 +4,14 @@ Danielle Navarro
 14 April 2019
 
 [![Travis build
-status](https://travis-ci.org/djnavarro/slumstyle.svg?branch=master)](https://travis-ci.org/djnavarro/slumstyle)
+status](https://travis-ci.org/djnavarro/slumdown.svg?branch=master)](https://travis-ci.org/djnavarro/slumdown)
 
 An R package to accompany the [slum theme for
 blogdown](https://github.com/djnavarro/hugo-slum).
 
 ``` r
-# devtools::install_github("djnavarro/slumstyle")
-library("slumstyle")
+# devtools::install_github("djnavarro/slumdown")
+library("slumdown")
 ```
 
 At present it contains only one function `theme_slum()` which provides
