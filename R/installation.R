@@ -39,18 +39,26 @@ slum_new <- function(
   }
 }
 
-#' List the colour styles
+#' List the colour palettes that slum knows
 #' @importFrom here here
 #' @export
-slum_styles <- function() {
+slum_palettes <- function() {
 
+  # check if this is actually a slumdown blog
   theme_dir <- here::here("themes", "hugo-slum")
   if(!dir.exists(theme_dir)) {
     stop(theme_dir," does not exist")
   }
 
-  theme_css <- here::here("themes", "hugo-slum", "css")
-  base_themes <- list.files(theme_css, pattern = "colour_[:alpha:]\\.css")
+  # list the styles from the theme directory
+  base_css <- here::here("themes", "hugo-slum", "static", "css")
+  base_styles <- list.files(base_css, pattern = "palette_.*\\.css")
 
-  return(base_themes)
+  # list the styles from the user directory
+  user_css <- here::here("static", "css")
+  if(dir.exists(user_css)) {
+    user_styles <- list.files(base_css, pattern = "palette_.*\\.css")
+  }
+
+  return(c(base_styles, user_styles))
 }
