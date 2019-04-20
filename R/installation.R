@@ -27,6 +27,15 @@ slum_new <- function(
     serve = FALSE
   )
 
+  # create an Rstudio project (or .here if not in Rstudio)
+  # NOTE: this isn't robust if it's .here I think????
+  if(project) {
+    usethis::create_project(normalizePath(dir))
+  }
+
+  # serve the site from the new project
+  blogdown::serve_site()
+
   # create a .nojekyll file
   if(nojekyll) {
     jekyll_path <- file.path(dir,"static",".nojekyll")
@@ -34,13 +43,6 @@ slum_new <- function(
     message("Created file .nojekyll in", file.path(dir,"static"))
   }
 
-  # create an Rstudio project (or .here if not in Rstudio)
-  if(project) {
-    usethis::create_project(normalizePath(dir))
-  }
-
-  # now serve
-  blogdown::serve_site()
 }
 
 #' List the colour palettes that slum knows
