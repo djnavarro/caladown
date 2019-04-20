@@ -1,4 +1,4 @@
-slumstyle
+The slumdown package
 ================
 Danielle Navarro
 14 April 2019

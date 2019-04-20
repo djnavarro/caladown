@@ -1,5 +1,5 @@
 ---
-title: "slumstyle"
+title: "The slumdown package"
 author: "Danielle Navarro"
 date: "14 April 2019"
 output: github_document
