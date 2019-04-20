@@ -52,13 +52,14 @@ slum_palettes <- function() {
 
   # list the styles from the theme directory
   base_css <- here::here("themes", "hugo-slum", "static", "css")
-  base_styles <- list.files(base_css, pattern = "palette_.*\\.css")
+  styles <- list.files(base_css, pattern = "palette_.*\\.css")
 
   # list the styles from the user directory
   user_css <- here::here("static", "css")
   if(dir.exists(user_css)) {
-    user_styles <- list.files(base_css, pattern = "palette_.*\\.css")
+    user_styles <- list.files(user_css, pattern = "palette_.*\\.css")
+    styles <- c(styles, user_styles)
   }
 
-  return(c(base_styles, user_styles))
+  return(styles)
 }
