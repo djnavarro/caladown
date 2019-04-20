@@ -39,5 +39,18 @@ slum_new <- function(
   }
 }
 
+#' List the colour styles
+#' @importFrom here here
+#' @export
+slum_styles <- function() {
 
+  theme_dir <- here::here("themes", "hugo-slum")
+  if(!dir.exists(theme_dir)) {
+    stop(theme_dir," does not exist")
+  }
 
+  theme_css <- here::here("themes", "hugo-slum", "css")
+  base_themes <- list.files(theme_css, pattern = "colour_[:alpha:]\\.css")
+
+  return(base_themes)
+}
