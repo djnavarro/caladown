@@ -5,8 +5,9 @@
 #' @details This is just a wrapper to blogdown::new_site
 #' @importFrom blogdown new_site
 #' @export
-new_site <- function(dir = ".", ...) {
+new_slum <- function(dir = ".", ...) {
   blogdown::new_site(
+    dir = dir,
     ...,
     theme = "djnavarro/hugo-slum",
     sample = FALSE
