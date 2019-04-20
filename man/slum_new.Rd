@@ -5,7 +5,7 @@
 \title{Creates new blogdown site with slum theme}
 \usage{
 slum_new(dir = ".", theme = "djnavarro/hugo-slum",
-  hostname = "github.com", ...)
+  hostname = "github.com", project = TRUE, nojekyll = TRUE, ...)
 }
 \arguments{
 \item{dir}{Where to create the new blog}
@@ -13,6 +13,10 @@ slum_new(dir = ".", theme = "djnavarro/hugo-slum",
 \item{theme}{Location of hugo theme}
 
 \item{hostname}{Where to look for repo}
+
+\item{project}{Create a tidy slum}
+
+\item{nojekyll}{Add a nojekyll file}
 
 \item{...}{Other arguments to be passed to blogdown::new_site}
 }

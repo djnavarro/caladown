@@ -3,6 +3,8 @@
 #' @param dir Where to create the new blog
 #' @param theme Location of hugo theme
 #' @param hostname Where to look for repo
+#' @param project Create a tidy slum
+#' @param nojekyll Add a nojekyll file
 #' @param ... Other arguments to be passed to blogdown::new_site
 #' @details This is just a wrapper to blogdown::new_site
 #' @importFrom blogdown new_site
@@ -10,7 +12,10 @@
 slum_new <- function(
   dir = ".",
   theme = "djnavarro/hugo-slum",
-  hostname = "github.com", ...) {
+  hostname = "github.com",
+  project = TRUE,
+  nojekyll = TRUE,
+  ...) {
 
   # create the blogdown site
   blogdown::new_site(
@@ -20,24 +25,6 @@ slum_new <- function(
     hostname = hostname,
     sample = FALSE
   )
-}
-
-#' Creates new blogdown site with slum theme
-#'
-#' @param dir Where to create the new blog
-#' @param here Whether to create a .here file
-#' @param nojekyll Whether to create a .nojekyll file
-#' @details This is just a wrapper to blogdown::new_site
-#' @export
-slum_tidy <- function(
-  dir = ".", here = TRUE, nojekyll = TRUE) {
-
-  # create a .here file
-  if(here) {
-    here_path <- file.path(dir,".here")
-    writeLines(character(), here_path)
-    message("Created file .here in", file.path(dir))
-  }
 
   # create a .nojekyll file
   if(nojekyll) {
@@ -45,6 +32,12 @@ slum_tidy <- function(
     writeLines(character(), jekyll_path)
     message("Created file .nojekyll in", file.path(dir,"static"))
   }
+
+  # creat an Rstudio project (or .here if not in Rstudio)
+  if(project) {
+    usethis::create_project(normalizePath(dir))
+  }
 }
+
 
 
