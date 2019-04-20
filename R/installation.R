@@ -17,13 +17,14 @@ slum_new <- function(
   nojekyll = TRUE,
   ...) {
 
-  # create the blogdown site
+  # create the blogdown site but do not yet serve
   blogdown::new_site(
     dir = dir,
     ...,
     theme = theme,
     hostname = hostname,
-    sample = FALSE
+    sample = FALSE,
+    serve = FALSE
   )
 
   # create a .nojekyll file
@@ -33,10 +34,13 @@ slum_new <- function(
     message("Created file .nojekyll in", file.path(dir,"static"))
   }
 
-  # creat an Rstudio project (or .here if not in Rstudio)
+  # create an Rstudio project (or .here if not in Rstudio)
   if(project) {
     usethis::create_project(normalizePath(dir))
   }
+
+  # now serve
+  blogdown::serve_site()
 }
 
 #' List the colour palettes that slum knows
