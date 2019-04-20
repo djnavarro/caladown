@@ -4,10 +4,20 @@
 \alias{new_slum}
 \title{Creates new blogdown site with slum theme}
 \usage{
-new_slum(dir = ".", ...)
+new_slum(dir = ".", here = TRUE, nojekyll = TRUE,
+  enter_slum = TRUE, theme = "https://github.com/djnavarro/hugo_slum",
+  ...)
 }
 \arguments{
 \item{dir}{Where to create the new blog}
+
+\item{here}{Whether to create a .here file}
+
+\item{nojekyll}{Whether to create a .nojekyll file}
+
+\item{enter_slum}{Whether to change the working directory}
+
+\item{theme}{Location of hugo theme}
 
 \item{...}{Arguments to be passed to blogdown::new_site}
 }
