@@ -11,14 +11,32 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [![Travis build status](https://travis-ci.org/djnavarro/slumdown.svg?branch=master)](https://travis-ci.org/djnavarro/slumdown)
 
-An R package to accompany the [slum theme for blogdown](https://github.com/djnavarro/hugo-slum). 
 
 ```{r install}
 # devtools::install_github("djnavarro/slumdown")
 library("slumdown")
 ```
 
-At present it contains only one function `theme_slum()` which provides ggplot2 themes that are consistent with the different slum colour schemes.
+Create a new blogdown site using the [slum theme](https://github.com/djnavarro/hugo-slum). By default, the blog is 
+created in a new RStudio project, and is configured to publish to the "docs"
+folder (to make it easier to publish to github pages)
+
+
+```{r eval=FALSE}
+# create a new slumdown blog & rstudio project 
+# NOT RUN:
+slum_new() 
+```
+
+List the palettes (will throw an error if it cannot find the theme)
+
+```{r eval=FALSE}
+slum_palettes()
+```
+
+Function to create a new palette...
+
+The `theme_slum()` function provides ggplot2 themes that are consistent with the different slum colour schemes.
 
 ```{r, warning=FALSE}
 library(ggplot2)
