@@ -1,30 +1,42 @@
 #' Creates new blogdown site with slum theme
 #'
 #' @param dir Where to create the new blog
-#' @param here Whether to create a .here file
-#' @param nojekyll Whether to create a .nojekyll file
-#' @param enter_slum Whether to change the working directory
 #' @param theme Location of hugo theme
-#' @param ... Arguments to be passed to blogdown::new_site
+#' @param hostname Where to look for repo
+#' @param ... Other arguments to be passed to blogdown::new_site
 #' @details This is just a wrapper to blogdown::new_site
 #' @importFrom blogdown new_site
-#' @importFrom here set_here
 #' @export
-new_slum <- function(
-  dir = ".", here = TRUE, nojekyll = TRUE, enter_slum = TRUE,
-  theme = "https://github.com/djnavarro/hugo_slum", ...) {
+slum_new <- function(
+  dir = ".",
+  theme = "djnavarro/hugo_slum",
+  hostname = "github.com", ...) {
 
   # create the blogdown site
   blogdown::new_site(
     dir = dir,
     ...,
     theme = theme,
+    hostname = hostname,
     sample = FALSE
   )
+}
+
+#' Creates new blogdown site with slum theme
+#'
+#' @param dir Where to create the new blog
+#' @param here Whether to create a .here file
+#' @param nojekyll Whether to create a .nojekyll file
+#' @details This is just a wrapper to blogdown::new_site
+#' @export
+slum_tidy <- function(
+  dir = ".", here = TRUE, nojekyll = TRUE) {
 
   # create a .here file
   if(here) {
-    here::set_here(dir, verbose = TRUE)
+    here_path <- file.path(dir,".here")
+    writeLines(character(), here_path)
+    message("Created file .here in", file.path(dir))
   }
 
   # create a .nojekyll file
@@ -33,9 +45,6 @@ new_slum <- function(
     writeLines(character(), jekyll_path)
     message("Created file .nojekyll in", file.path(dir,"static"))
   }
-
-  # go to that directory
-  if(enter_slum) {
-    setwd(dir)
-  }
 }
+
+
