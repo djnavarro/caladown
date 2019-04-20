@@ -4,7 +4,7 @@
 \alias{slum_new}
 \title{Creates new blogdown site with slum theme}
 \usage{
-slum_new(dir = ".", theme = "djnavarro/hugo_slum",
+slum_new(dir = ".", theme = "djnavarro/hugo-slum",
   hostname = "github.com", ...)
 }
 \arguments{

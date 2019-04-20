@@ -9,7 +9,7 @@
 #' @export
 slum_new <- function(
   dir = ".",
-  theme = "djnavarro/hugo_slum",
+  theme = "djnavarro/hugo-slum",
   hostname = "github.com", ...) {
 
   # create the blogdown site
