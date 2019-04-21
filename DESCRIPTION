@@ -1,11 +1,13 @@
 Package: slumdown
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A Hugo Theme for Blogdown
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Danielle Navarro
+Maintainer: Danielle Navarro <d.navarro@unsw.edu.au>
+Description: Provides a simple theme for writing a blog in blogdown. The 
+slumdown package contains wrapper functions to install the slum theme for
+Hugo, convenience functions for customising the blog from within R, and a
+mechanism to generate ggplot2 plots that match the blog colour palette.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
