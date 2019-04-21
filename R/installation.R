@@ -23,11 +23,13 @@ slum_new <- function(
     ...,
     theme = theme,
     hostname = hostname,
-    sample = FALSE
+    sample = FALSE,
+    serve = FALSE
   )
 
   # create a .nojekyll file
   if(nojekyll) {
+    dir.create(file.path(dir,"static"))
     jekyll_path <- file.path(dir,"static",".nojekyll")
     writeLines(character(), jekyll_path)
     message("Created file .nojekyll in", file.path(dir,"static"))
