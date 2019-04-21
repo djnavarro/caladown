@@ -1,39 +1,41 @@
 The slumdown package
 ================
 Danielle Navarro
-14 April 2019
+21 April 2019
 
 [![Travis build
 status](https://travis-ci.org/djnavarro/slumdown.svg?branch=master)](https://travis-ci.org/djnavarro/slumdown)
 
-An R package to accompany the [slum theme for
-blogdown](https://github.com/djnavarro/hugo-slum).
+The *slumdown* package is an experiment in creating a simple “blogdown
+native” Hugo theme, one that assumes that posts are written using R
+Markdown. It extends the [slum theme for
+Hugo](https://github.com/djnavarro/hugo-slum) by providing an interface
+for customising the blog within R and a system for generating plots that
+use the same colour scheme as the blog post. The *slumdown* package is
+not on CRAN and so needs to be installed from GitHub:
 
 ``` r
 # devtools::install_github("djnavarro/slumdown")
 library("slumdown")
 ```
 
-At present it contains only one function `theme_slum()` which provides
-ggplot2 themes that are consistent with the different slum colour
-schemes.
+By default, the *slumdown* package assumes the source code for the site
+takes the form of an RStudio project, and will be deployed to GitHub
+pages, though neither is strictly necessary. To get started:
 
 ``` r
-library(ggplot2)
-p <- ggplot(mpg, aes(displ, hwy)) + geom_point()
-p + theme_slum("light")
+slum_new(dir = "path/to/my/slumblog") 
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+This will create a new RStudio project called `slumblog` (or whatever),
+download the slum theme and the example site. From within the project,
+initialise the blog using `blogdown`:
 
 ``` r
-p + theme_slum("dark")
+blogdown::serve_site()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-1-2.png)<!-- -->
-
-``` r
-p + theme_slum("kunoichi")
-```
-
-![](README_files/figure-gfm/unnamed-chunk-1-3.png)<!-- -->
+Blogdown will then generate the [example
+site](https://djnavarro.github.io/hugo-slum/) in the `docs` folder,
+which provides a short tutorial on how to get started using the package
+and what it is capale of.
