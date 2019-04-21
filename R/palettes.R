@@ -1,0 +1,70 @@
+# Functions that work with palettes
+
+#' List the colour palettes that slum knows
+#' @importFrom here here
+#' @export
+slum_listpalettes <- function() {
+
+  check_slumdown()
+
+  # list the styles from the theme directory
+  base_css <- here::here("themes", "hugo-slum", "static", "css")
+  styles <- list.files(
+    base_css, pattern = "palette_.*\\.css", full.names = TRUE)
+
+  # list the styles from the user directory
+  user_css <- here::here("static", "css")
+  if(dir.exists(user_css)) {
+    user_styles <- list.files(
+      user_css, pattern = "palette_.*\\.css", full.names = TRUE)
+    styles <- c(user_styles, styles)
+  }
+
+  return(styles)
+}
+
+#' Retrieve palette information
+#' @param palette Character string with the name of the palette (e.g., "dark")
+#' @details Searches the two standard locations (user static/css and theme
+#' static/css) to find a slum palette with the appropriate name.
+#' @return A named character vector
+#' @importFrom here here
+#' @export
+slum_getpalette <- function(palette) {
+
+  check_slumdown()
+
+  # look in user directory first
+  palette_file <- here::here("static", "css",
+                             paste0("palette_", palette, ".css"))
+
+  # if not there look in theme directory
+  if(!file.exists(palette_file)) {
+    palette_file <- here::here("themes", "hugo-slum", "static", "css",
+                               paste0("palette_", palette, ".css"))
+  }
+
+  # if not there either, give up
+  if(!file.exists(palette_file)) {
+    stop(palette, " palette not found")
+  }
+
+  # read the palette file
+  raw <- readLines(palette_file)
+
+  # extract relevant information
+  inds <- grep("^.*--(.*):(.*);.*$", raw)
+  tidy <- gsub(
+    pattern = "^.*--(.*):(.*);.*$",
+    replacement = "\\1 \\2",
+    x = raw[inds])
+
+  # convert to a named vector of colours
+  x <- strsplit(tidy, "  *")
+  names <- sapply(x, function(x){x[1]})
+  values <- sapply(x, function(x){x[2]})
+  names(values) <- names
+
+  return(values)
+}
+
