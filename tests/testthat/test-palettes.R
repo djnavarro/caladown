@@ -3,6 +3,6 @@
 # possible approach: include key files in inst, and weaken the "check slumdown"
 # condition?
 
-# test_that("palettes use the correct names", {
-#   expect_named(slum_getpalette("dark"), )
-# })
+test_that("palettes use the correct names", {
+#   expect_named(slum_getpalette("dark"), c("pagecolour","maintext", "faded", "highlight", "lowlight"))
+})

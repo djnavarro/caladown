@@ -48,7 +48,7 @@ check_slumdown <- function() {
 
   theme_dir <- here::here("themes", "hugo-slum")
   if(!dir.exists(theme_dir)) {
-    stop("Sorry, the current project doesn't look like a slumdown blog")
+    warning("The current project doesn't look like a slumdown blog")
   }
 
 }
