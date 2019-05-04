@@ -27,6 +27,8 @@ theme_slum <- function(palette = "dark", ...) {
       axis.title = ggplot2::element_text(colour = pal["maintext"]),
       axis.text = ggplot2::element_text(colour = pal["maintext"]),
       legend.title = ggplot2::element_text(colour = pal["maintext"]),
-      legend.text = ggplot2::element_text(colour = pal["maintext"])
+      legend.text = ggplot2::element_text(colour = pal["maintext"]),
+      strip.background = ggplot2::element_rect(fill = pal["maintext"], colour = pal["maintext"]),
+      strip.text = ggplot2::element_text(colour = pal["pagecolour"])
     )
 }
