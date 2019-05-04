@@ -6,6 +6,9 @@ Danielle Navarro
 [![Travis build
 status](https://travis-ci.org/djnavarro/slumdown.svg?branch=master)](https://travis-ci.org/djnavarro/slumdown)
 
+[![Codecov test
+coverage](https://codecov.io/gh/djnavarro/slumdown/branch/master/graph/badge.svg)](https://codecov.io/gh/djnavarro/slumdown?branch=master)
+
 The *slumdown* package is an experiment in creating a simple “blogdown
 native” Hugo theme, one that assumes that posts are written using R
 Markdown. It extends the [slum theme for
