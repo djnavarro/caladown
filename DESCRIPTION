@@ -16,7 +16,8 @@ Imports:
     ggplot2,
     blogdown,
     here,
-    usethis
+    usethis,
+    knitr
 Suggests: 
     testthat (>= 2.1.0),
     covr

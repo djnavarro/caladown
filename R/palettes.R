@@ -90,10 +90,10 @@ slum_addpalette <- function(name, pagecolour, maintext, faded, highlight, lowlig
     paste0(" /* ", name, " colour scheme */"),
     ":root { ",
     paste0("  --pagecolour: ", pagecolour , ";  "),
-    paste0("    --maintext: ", maintext, ";  "),
-    paste0("    --faded: ", faded, "; "),
-    paste0("    --highlight: ", highlight, "; "),
-    paste0("    --lowlight: ", lowlight, "; "),
+    paste0("  --maintext: ", maintext, ";  "),
+    paste0("  --faded: ", faded, "; "),
+    paste0("  --highlight: ", highlight, "; "),
+    paste0("  --lowlight: ", lowlight, "; "),
     "}"
   )
 
@@ -111,5 +111,18 @@ slum_addpalette <- function(name, pagecolour, maintext, faded, highlight, lowlig
     writeLines(pal, file.path(path, fname))
   }
 
+}
+
+
+#' Specify background colour with knitr
+#' @param palette The palette name (default = "dark")
+#' @param name The colour (default = "pagecolour")
+#' @details Convenience function that uses knitr to pass a background colour
+#' argument to the graphics device
+#'
+#' @importFrom knitr opts_chunk
+#' @export
+slum_setdevicecolour <- function(palette = "dark", name = "pagecolour") {
+  knitr::opts_chunk$set(dev.args = list(bg=slum_getpalette(name)))
 }
 

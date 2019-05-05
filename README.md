@@ -42,4 +42,11 @@ blogdown::serve_site()
 Blogdown will then generate the [example
 site](https://djnavarro.github.io/hugo-slum/) in the `docs` folder,
 which provides a short tutorial on how to get started using the package
-and what it is capale of.
+and what it is capable of.
+
+## Warning\!
+
+On the off chance that anyone plans to use this other than me… probably
+not a good idea right now. It is *very* experimental, I’m using it
+largely as a method of teaching myself new things, and no part of the
+API is stable at the moment.
