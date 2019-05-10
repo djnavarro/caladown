@@ -113,6 +113,7 @@ build_slum_nojekyll <- function(dir, quietly = FALSE) {
 }
 
 
+
 #' Adds a project file to slumdown blog
 #'
 #' @param dir Where is the blog directory
@@ -125,13 +126,12 @@ build_slum_project <- function(dir) {
 
 
 
-
 #' Creates new slumdown site
 #'
 #' @param dir Where to create the new blog
-#' @param remote
-#' @param project Create a tidy slum
-#' @param nojekyll Add a nojekyll file
+#' @param remote Install from github (remote = TRUE) or locally (remote = FALSE)
+#' @param project Create files to specify location of project root?
+#' @param nojekyll Add a nojekyll file?
 #' @details Create a new slumdown blog
 #' @export
 new_slum <- function(dir, remote = FALSE, project = TRUE, nojekyll = TRUE) {

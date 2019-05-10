@@ -9,9 +9,11 @@ new_slum(dir, remote = FALSE, project = TRUE, nojekyll = TRUE)
 \arguments{
 \item{dir}{Where to create the new blog}
 
-\item{project}{Create a tidy slum}
+\item{remote}{Install from github (remote = TRUE) or locally (remote = FALSE)}
 
-\item{nojekyll}{Add a nojekyll file}
+\item{project}{Create files to specify location of project root?}
+
+\item{nojekyll}{Add a nojekyll file?}
 }
 \description{
 Creates new slumdown site
