@@ -54,6 +54,9 @@ build_slum_remotely <- function(dir) {
     sample = FALSE,
     serve = FALSE
   )
+
+  # don't return anything
+  return(invisible(NULL))
 }
 
 
@@ -111,6 +114,8 @@ build_slum_locally <- function(dir) {
     file.path(dir, "index.Rmd")
   )
 
+  # don't return anything
+  return(invisible(NULL))
 }
 
 
