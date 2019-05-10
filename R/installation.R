@@ -1,43 +1,4 @@
 
-#' Creates new blogdown site with slum theme
-#'
-#' @param dir Where to create the new blog
-#' @param project Create a tidy slum
-#' @param nojekyll Add a nojekyll file
-#' @param ... Other arguments to be passed to blogdown::new_site
-#' @details This is just a wrapper to blogdown::new_site
-#' @export
-new_slum <- function(
-  dir = ".",
-  project = TRUE,
-  nojekyll = TRUE,
-  ...) {
-
-  # create the blogdown site with no theme
-  blogdown::new_site(
-    dir = dir,
-    theme = "djnavarro/hugo-slum",
-    sample = FALSE,
-    serve = FALSE
-  )
-
-  # create a .nojekyll file
-  if(nojekyll) {
-    dir.create(file.path(dir,"static"))
-    jekyll_path <- file.path(dir,"static",".nojekyll")
-    writeLines(character(), jekyll_path)
-    message("Created file .nojekyll in", file.path(dir,"static"))
-  }
-
-  # create an Rstudio project (or .here if not in Rstudio)
-  # NOTE: this isn't robust if it's .here I think????
-  if(project) {
-    usethis::create_project(normalizePath(dir))
-  }
-
-}
-
-
 
 #' Build slumdown blog from remote source
 #'
@@ -58,6 +19,8 @@ build_slum_remotely <- function(dir) {
   # don't return anything
   return(invisible(NULL))
 }
+
+
 
 
 #' Build slumdown blog from local source
@@ -117,6 +80,79 @@ build_slum_locally <- function(dir) {
   # don't return anything
   return(invisible(NULL))
 }
+
+
+
+#' Adds a nojekyll file to a slumdown blog
+#'
+#' @param dir Where is the blog directory
+#' @param quietly Suppress the output message (default = FALSE)
+#' @details Adds the .nojekyll file for github pages deployment
+#' @export
+build_slum_nojekyll <- function(dir, quietly = FALSE) {
+
+  # paths
+  static_dir <- file.path(dir, "static")
+  jekyll_path <- file.path(dir, "static", ".nojekyll")
+
+  # create directory if needed
+  if(!dir.exists(static_dir)) {
+    dir.create(static_dir)
+  }
+
+  # create blank file
+  writeLines(character(), jekyll_path)
+
+  # optionally, message user
+  if(!quietly) {
+    message("Created file .nojekyll in", static_dir)
+  }
+
+  # don't return anything
+  return(invisible(NULL))
+}
+
+
+#' Adds a project file to slumdown blog
+#'
+#' @param dir Where is the blog directory
+#' @details Adds an RStudio project file or .here file to specify project root
+#' @export
+build_slum_project <- function(dir) {
+  usethis::create_project(normalizePath(dir))
+  return(invisible(NULL))
+}
+
+
+
+
+#' Creates new slumdown site
+#'
+#' @param dir Where to create the new blog
+#' @param remote
+#' @param project Create a tidy slum
+#' @param nojekyll Add a nojekyll file
+#' @details Create a new slumdown blog
+#' @export
+new_slum <- function(dir, remote = FALSE, project = TRUE, nojekyll = TRUE) {
+
+  if(remote) {
+    build_slum_remotely(dir)
+  } else {
+    build_slum_locally(dir)
+  }
+
+  if(nojekyll) {
+    build_slum_nojekyll(dir)
+  }
+
+  if(project) {
+    build_slum_project(dir)
+  }
+
+  return(invisible(NULL))
+}
+
 
 
 

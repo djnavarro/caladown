@@ -2,9 +2,9 @@
 % Please edit documentation in R/installation.R
 \name{new_slum}
 \alias{new_slum}
-\title{Creates new blogdown site with slum theme}
+\title{Creates new slumdown site}
 \usage{
-new_slum(dir = ".", project = TRUE, nojekyll = TRUE, ...)
+new_slum(dir, remote = FALSE, project = TRUE, nojekyll = TRUE)
 }
 \arguments{
 \item{dir}{Where to create the new blog}
@@ -12,12 +12,10 @@ new_slum(dir = ".", project = TRUE, nojekyll = TRUE, ...)
 \item{project}{Create a tidy slum}
 
 \item{nojekyll}{Add a nojekyll file}
-
-\item{...}{Other arguments to be passed to blogdown::new_site}
 }
 \description{
-Creates new blogdown site with slum theme
+Creates new slumdown site
 }
 \details{
-This is just a wrapper to blogdown::new_site
+Create a new slumdown blog
 }
