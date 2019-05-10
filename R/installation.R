@@ -39,8 +39,6 @@ new_slum <- function(
 
 
 
-
-
 #' Build slumdown blog from remote source
 #'
 #' @importFrom blogdown new_site
