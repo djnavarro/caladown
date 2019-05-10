@@ -29,6 +29,10 @@ test_that("remote and local installations are identical", {
   # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.21' not found
   skip_on_travis()
 
+  # also skip if we are offline or on CRAN (lol, this is never going to CRAN)
+  skip_if_offline()
+  skip_on_cran()
+
   # build a local version and from the remote source
   build_slum_locally(dir_loc)
   build_slum_remotely(dir_rem)
