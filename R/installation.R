@@ -117,11 +117,13 @@ build_slum_nojekyll <- function(dir, quietly = FALSE) {
 #' Adds a project file to slumdown blog
 #'
 #' @param dir Where is the blog directory
-#' @details Adds an RStudio project file or .here file to specify project root
+#' @param open Should RStudio open the project?
+#' @details Creates a project or sentinel .here file to specify project root
+#' @importFrom usethis create_project
 #' @export
-build_slum_project <- function(dir) {
-  usethis::create_project(normalizePath(dir))
-  return(invisible(NULL))
+build_slum_project <- function(dir, open = interactive()) {
+  dir <- normalizePath(dir)
+  usethis::create_project(path = dir, open = open)
 }
 
 

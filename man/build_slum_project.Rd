@@ -4,14 +4,16 @@
 \alias{build_slum_project}
 \title{Adds a project file to slumdown blog}
 \usage{
-build_slum_project(dir)
+build_slum_project(dir, open = interactive())
 }
 \arguments{
 \item{dir}{Where is the blog directory}
+
+\item{open}{Should RStudio open the project?}
 }
 \description{
 Adds a project file to slumdown blog
 }
 \details{
-Adds an RStudio project file or .here file to specify project root
+Creates a project or sentinel .here file to specify project root
 }

@@ -52,3 +52,20 @@ test_that("nojekyll file created when requested", {
   expect_true(file.exists(jekyll_file))
 
 })
+
+
+test_that("project file created when requested", {
+
+  # possible files that might be created
+  here_file <- file.path(dir_loc, ".here")
+  proj_file <- file.path(dir_loc, "slum_loc")
+
+  # neither should exist initially
+  expect_false(file.exists(here_file))
+  expect_false(file.exists(proj_file))
+
+  # one of the two should appear when requested
+  build_slum_project(dir_loc)
+  expect_true( file.exists(here_file) || file.exists(proj_file) )
+
+})
