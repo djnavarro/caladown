@@ -1,0 +1,116 @@
+
+# The config file is written using TOML, which stands for "Tom's Obvious,
+# Minimal Language". See: https://github.com/toml-lang/toml
+
+
+
+# The URL for your website. It should end with a trailing slash,
+# e.g. "https://example.com/". If you're planning to deploy on
+# GitHub pages the way I've done for the example site at
+# https://djnavarro.github.io/hugo-slum/, then you can do something
+# like this:
+baseurl = "/hugo-slum/"
+
+
+
+# Rewrite relative URLs to be relative to the current content.
+relativeurls = true
+
+
+
+# Default is "public", but if you're using github pages you
+# need to point this to "docs".
+publishDir = "docs"
+
+
+
+# These settings specify the title for your blog, and the name of
+# the Hugo theme that it uses.
+title = "Slumdown"
+theme = "hugo-slum"
+
+
+
+# Settings inherited from XMin theme that I haven't bothered to
+# to edit in any way
+languageCode = "en-us"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+preserveTaxonomyNames = true
+footnotereturnlinkcontents = "↩"
+
+
+
+# What format should the permalinks take? In the example site there
+# are two kinds of pages, posts and projects, listed at:
+#
+#    https://djnavarro.github.io/hugo-slum/post/
+#    https://djnavarro.github.io/hugo-slum/project/
+#
+# Each post is then followed by its own "slug", so the full path
+# might be something like this:
+#
+#     https://djnavarro.github.io/hugo-slum/post/getting-started/
+#
+[permalinks]
+    post = "/post/:slug/"
+    project = "/project/:slug/"
+#
+# Alternative version:
+#   post = "/post/:year/:month/:day/:slug/"
+#   project = "/project/:year/:month/:day/:slug/"
+
+
+
+# These settings are used to specify the links in the main
+# navigation bar. Each item has a "name" (the link text), a
+# "url" (path to the page), and a "weight" (the order).
+# Something to keep in mind for new users: you won't find
+# specific files that correspond to all of these pages. See
+# the documentation for an explanation of where they come from
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+[[menu.main]]
+    name = "Posts"
+    url = "/post/"
+    weight = 3
+[[menu.main]]
+    name = "Projects"
+    url = "/project/"
+    weight = 4
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 5
+
+
+
+# Parameters used in various places throughout the site.
+#
+# - "siteHeader" specifies the default image used at the top of
+#   every page (you can override it for specific posts). The
+#   path to the image is specified relative to the "static/"
+#   folder
+#
+# - "siteProfile" as above, but for the inset profile image.
+#
+# - "colourScheme" specifies a path to a css file that describes
+#   the colour scheme, again relative to the "static/" folder. As
+#   before you can override it for specific posts.
+#
+# - "description" of the site
+# - "footer" contents
+[params]
+    siteHeader = "header/mpg_dark.png"
+    siteProfile = "header/my_profile.png"
+    twitterImage = "https://djnavarro.github.io/hugo-slum/header/slumdown.png"
+    colourScheme = "css/palette_dark.css"
+    description = "A website built using slumdown."
+    footer = "&copy; [Danielle Navarro](https://djnavarro.net) 2018--2019 | [Github](https://github.com/djnavarro) | [Twitter](https://twitter.com/djnavarro)"

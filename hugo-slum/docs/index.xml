@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Slumdown</title>
+    <link>/</link>
+    <description>Recent content in Home on Slumdown</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorial part 1: Getting started</title>
+      <link>/post/getting-started/</link>
+      <pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/getting-started/</guid>
+      <description>A sort summary of how to get started using the slumdown package. It discusses how to install the package, set up a new site, and where to look for initial configuration.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial part 2: Writing a post</title>
+      <link>/post/writing-a-post/</link>
+      <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/writing-a-post/</guid>
+      <description>Like any blogdown post, a slumdown post is written in R Markdown, and uses a few custom fields in the YAML field. This tutorial provides an illustration of how different kinds of content are displayed.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial part 3: Colour palettes in slumdown</title>
+      <link>/post/colour-palettes/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/colour-palettes/</guid>
+      <description>The main reason I wrote slumdown (besides boredom) was to make it easy to  include user-defined colours palettes in blogdown, and expose those palettes to R so that (for instance) plots can be drawn in a style that matches the blog style. This tutorial introduces this palette system.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial part 4: Customising the header</title>
+      <link>/post/customising-headers/</link>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/customising-headers/</guid>
+      <description>Slumdown allows the user to control the background image at the top of each post, the profile image overlaid in the middle of that image, and the caption attached to the header image. This post describes how this is done.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial part 5: Deploying to GitHub</title>
+      <link>/post/deploying-to-github/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/deploying-to-github/</guid>
+      <description>This tutorial describes how to deploy a site. Blogdown sites are very often deployed to Netlify, but I have a personal bias to use GitHub Pages, so &lt;em&gt;slumdown&lt;/em&gt; is configured by default to use GitHub.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial part 6: Some notes on Hugo</title>
+      <link>/post/notes-on-hugo/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/notes-on-hugo/</guid>
+      <description>Eventually, this will be an explanation of how the Hugo slum theme is designed, possibly accompanied by a brief tutorial on Hugo.</description>
+    </item>
+    
+    <item>
+      <title>A kunoichi page</title>
+      <link>/project/kunoichi/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/kunoichi/</guid>
+      <description>A simple project page illustrating how user-defined themes in &lt;em&gt;slumdown&lt;/em&gt; can be used as the basis of individual pages and ggplot2 figures. It doesn&amp;rsquo;t do very much.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>The idea behind slumdownThe slum theme for Hugo and blogdown is an adaptation Yihue Xie’s Xmin theme that borrows stylistic elements from the Tufte R Markdown theme and from the academic Hugo theme. Originally it was intended to be extremely minimal, with the very modest goal of trying to make sure I understood the logic of how Hugo generates static sites. The more I played with it though, the more I enjoyed it.</description>
+    </item>
+    
+  </channel>
+</rss>

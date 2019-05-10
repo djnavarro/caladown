@@ -1,0 +1,14 @@
+---
+title: Home
+---
+
+
+# An Introduction to Slumdown
+
+### A Hugo theme and R package by [Danielle Navarro](https://twitter.com/djnavarro)
+
+<img src="header/slumdown.png" width="150px" style="float:right; padding:15px;">
+
+<br>
+
+The idea behind *slumdown* is to provide an R package and Hugo theme designed to work together when writing a *blogdown* site (see the [about](about/) page for more detail). The posts listed below area work in progress, but are intended to serve as a succinct introduction and how-to guide.

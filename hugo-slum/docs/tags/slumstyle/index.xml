@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slumstyle on Slumdown</title>
+    <link>/tags/slumstyle/</link>
+    <description>Recent content in slumstyle on Slumdown</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/slumstyle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorial part 2: Writing a post</title>
+      <link>/post/writing-a-post/</link>
+      <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/writing-a-post/</guid>
+      <description>Like any blogdown post, a slumdown post is written in R Markdown, and uses a few custom fields in the YAML field. This tutorial provides an illustration of how different kinds of content are displayed.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial part 3: Colour palettes in slumdown</title>
+      <link>/post/colour-palettes/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/colour-palettes/</guid>
+      <description>The main reason I wrote slumdown (besides boredom) was to make it easy to  include user-defined colours palettes in blogdown, and expose those palettes to R so that (for instance) plots can be drawn in a style that matches the blog style. This tutorial introduces this palette system.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial part 4: Customising the header</title>
+      <link>/post/customising-headers/</link>
+      <pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/customising-headers/</guid>
+      <description>Slumdown allows the user to control the background image at the top of each post, the profile image overlaid in the middle of that image, and the caption attached to the header image. This post describes how this is done.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial part 5: Deploying to GitHub</title>
+      <link>/post/deploying-to-github/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/deploying-to-github/</guid>
+      <description>This tutorial describes how to deploy a site. Blogdown sites are very often deployed to Netlify, but I have a personal bias to use GitHub Pages, so &lt;em&gt;slumdown&lt;/em&gt; is configured by default to use GitHub.</description>
+    </item>
+    
+  </channel>
+</rss>

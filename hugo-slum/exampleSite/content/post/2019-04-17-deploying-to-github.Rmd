@@ -1,0 +1,39 @@
+---
+title: "Tutorial part 5: Deploying to GitHub"
+author: "Danielle Navarro"
+date: "2019-04-17"
+slug: deploying-to-github
+tags: ["slum", "blogdown", "slumstyle", "github pages"]
+summary: "This tutorial describes how to deploy a site. Blogdown sites are very often deployed to Netlify, but I have a personal bias to use GitHub Pages, so *slumdown* is configured by default to use GitHub." 
+header:
+  caption: "A blank ggplot"
+  image: 'header/theme_dark.png'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+The usual advice for deploying a blogdown site is to deploy to Netlify rather than GitHub Pages, because there are a few peculiarities with GitHub Pages that make this difficult. However, I have an ingrained habit of using GitHub Pages, with each repository hosted at 
+```
+https://username.github.io/reponame/
+```
+
+To make that happen for a blogdown site there are three things you need to change from the usual defaults:
+
+**First**, the site needs to be generated in the `docs` folder (which is what GitHub Pages expects) rather than the Hugo default which is to generate the site in the `public` folder. You can configure this by including the following line in the `config.toml` file:
+```
+publishDir = "docs"
+```
+This line is already included in the example site for *slumdown* -- i.e., this one -- so if you've started by installing this site then this has already been done for you.
+
+**Second**, the generated `docs` folder needs to contain a blank text file called `.nojekyll`, otherwise GitHub Pages will try to treat your content as a Jekyll blog and it won't deploy correctly. The easiest way to do this is to make sure that the `.nojekyll` file is in the `static` folder, which will ensure that every time blogdown re-generates the `docs` folder the `.nojekyll` file will be copied across with it. If you installed the site using `slumdown::slum_new()` this will have been done for you automatically. 
+
+**Third**, if you want the site to be hosted at a specific location (i.e., `https://username.github.io/reponame/` rather than `https://username.github.io/`), Hugo needs to know what `reponame` is, otherwise the paths to various files will break when the site deploys. To do this, there is a line in the `config.toml` file that (by default) reads as follows:
+```
+baseurl = "/hugo-slum/"
+```
+Edit this to replace `hugo-slum` with `reponame` (or whatever you called your repository)
+
+From there, set up your [GitHub Pages](https://pages.github.com/) site the way you normally would. **TODO**: Add a quick primer on GitHub Pages. 
+

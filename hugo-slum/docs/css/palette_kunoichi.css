@@ -1,0 +1,8 @@
+ /* kunoichi colour scheme */
+:root { 
+  --pagecolour: #562457;  
+  --maintext: #ffffff;  
+  --faded: #ba68c8; 
+  --highlight: #ffa500; 
+  --lowlight: #bbbbbb; 
+}

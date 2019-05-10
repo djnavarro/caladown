@@ -1,0 +1,87 @@
+---
+title: "Tutorial part 2: Writing a post"
+author: "Danielle Navarro"
+date: "2019-04-20"
+slug: writing-a-post
+tags: ["slum", "blogdown", "slumstyle"]
+summary: "Like any blogdown post, a slumdown post is written in R Markdown, and uses a few custom fields in the YAML field. This tutorial provides an illustration of how different kinds of content are displayed."
+header:
+  caption: "A blank ggplot"
+  image: 'header/theme_dark.png'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+The *slum* provides a simple Hugo theme intended primarily to be used in conjunction with the *blogdown* package, so posts take the form of R Markdown documents rather than plain markdown. I'm fairly certain that the theme supports plain markdown, but given that the appeal of *blogdown* lies in integrating R Markdown with the Hugo blogging system I'll jump straight to it. 
+
+## 1. The YAML header
+
+Like any R Markdown document, a post begins with the YAML header. For this post, the header looks like this:
+
+```
+---
+title: "Tutorial part 2: Writing a post"
+author: "Danielle Navarro"
+date: "2019-04-13"
+slug: writing-a-post
+tags: ["slum", "blogdown", "slumstyle"]
+summary: "Like any blogdown post, a slumdown post is written in R Markdown, and uses a few custom fields in the YAML field. This tutorial provides an illustration of how different kinds of content are displayed."
+header:
+  caption: "A blank ggplot"
+  image: 'header/theme_dark.png'
+---
+```
+Note that I specified the post summary manually. If you don't do it yourself, the template will set one for you but it won't look very nice.
+
+
+## 2. R chunks
+
+As usual, R chunks can be inserted:
+
+```{r packageload, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(slumdown)
+```
+
+Code that produces console output renders like this:
+
+```{r}
+glimpse(mpg)
+```
+
+
+## 3. Theme-consistent plots
+
+Because *slum* was written with the *blogdown* user in mind, the accompanying *slumstyle* package allows a modest amount of integration between the R side to the blog and the Hugo side. At the moment this is limited to providing a `theme_slum()` function for styling ggplot2 output. For instance, this site uses the "dark" colour theme, as specified by the following line in the `config.toml` file:
+
+```
+colourScheme = "css/colour_dark.css"
+```
+
+To create ggplot output that mirrors this theme, make sure that the [slumstyle package](https://github.com/djnavarro/slumstyle) is loaded and then it is as simple as specifying `theme_slum(dark)`, as shown in  Figure \@ref(fig:scatter) below:
+
+```{r scatter, fig.cap = "Here is a plot", warning=FALSE, message=FALSE}
+ggplot(mpg, aes(displ, hwy)) + 
+  geom_point() + theme_slum("dark")
+```
+
+By default the *slum* theme provides this "dark" colour scheme, but there is also a "light" scheme and a "kunoichi" scheme. I'll talk more about colour schemes in the next post.
+
+## 4. LaTeX
+
+Inline LaTeX expressions look like this:
+
+`$${\sqrt {n}}\left(\left({\frac {1}{n}}\sum _{i=1}^{n}X_{i}\right)-\mu \right)\ {\xrightarrow {d}}\ N\left(0,\sigma ^{2}\right)$$`
+
+
+## 5. Other markdown 
+
+At the moment, blockquotes look like this:
+
+> One is the loneliest number that you ever knew <br>
+> Two can be as bad as one, it's the loneliest number since the number one
+
+It's not the prettiest output ever and I might change it. 
+

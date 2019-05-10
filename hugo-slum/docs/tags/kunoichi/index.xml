@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kunoichi on Slumdown</title>
+    <link>/tags/kunoichi/</link>
+    <description>Recent content in kunoichi on Slumdown</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/kunoichi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A kunoichi page</title>
+      <link>/project/kunoichi/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/kunoichi/</guid>
+      <description>A simple project page illustrating how user-defined themes in &lt;em&gt;slumdown&lt;/em&gt; can be used as the basis of individual pages and ggplot2 figures. It doesn&amp;rsquo;t do very much.</description>
+    </item>
+    
+  </channel>
+</rss>

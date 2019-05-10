@@ -1,0 +1,32 @@
+---
+title: "Tutorial part 6: Some notes on Hugo"
+author: "Danielle Navarro"
+date: "2019-04-16"
+slug: notes-on-hugo
+tags: ["slum", "blogdown", "hugo"]
+summary: "Eventually, this will be an explanation of how the Hugo slum theme is designed, possibly accompanied by a brief tutorial on Hugo."
+header:
+  caption: "A blank ggplot"
+  image: 'header/theme_dark.png'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
+**TODO**. Talk about the templating system. Why is this page in "projects" and everything else is in "posts". It's actually super customisable, you can just create your own folders!
+
+- `_default/single.html`: the specific posts and project pages (in content)
+- `_default/lists.html` : the "listing pages" for posts and projects (auto)
+- `_default/terms.html` : the "listing page" for tags (auto)
+- `_default/home.html` : the home page (corresponding to _index.html)
+
+The exception is:
+
+- `generic_page/single.html` : used in the about.html page (note the YAML)
+
+Each of these uses various "partial" templates to avoid code reuse. 
+
+If you ever want to customise layouts, you can use the layouts folder rather than try to edit the themes folder. 
+

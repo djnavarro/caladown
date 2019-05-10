@@ -1,0 +1,13 @@
+---
+title: About
+type: "generic_page"
+---
+
+# The idea behind *slumdown*
+
+The [slum theme for Hugo](https://github.com/djnavarro/hugo-slum) and blogdown is an adaptation Yihue Xie’s *Xmin* theme that borrows stylistic elements from the *Tufte* R Markdown theme and from the *academic* Hugo theme. Originally it was intended to be extremely minimal, with the very modest goal of trying to make sure I understood the logic of how Hugo generates static sites. The more I played with it though, the more I enjoyed it. So what I ended up with is a *"Somewhat-Light Unhelpfully-Minimal"* Hugo theme that I'm intending to use on [my blog](https://djnavarro.net).
+
+As it developed, I started getting annoyed at the fact that Hugo themes don't make their colour schemes easily accessible, which means it's hard to generate plots in R that match the visual style of the blog. So I decided to adapt the *slum* theme so that the colour templates were easily accessible, and wrote the [slumdown package](https://github.com/djnavarro/slumdown) so that I'd have a convenient user interface. 
+
+All in all, this has been a fun excercise, and I've learned quite a bit about Hugo, blogdown, and CSS in the process. I'm definitely keen on the idea of developing "blogdown aware" Hugo themes like *slum* alongside R packages like *slumdown* that take advantage of this.
+

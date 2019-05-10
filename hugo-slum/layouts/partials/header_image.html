@@ -1,0 +1,22 @@
+{{/* Header image */}}
+{{ if .Params.header.image }}
+<div class="article-header">
+  {{ $img_src := urls.Parse .Params.header.image }}
+  {{ if $img_src.Scheme }}
+  <img src="{{ .Params.header.image }}" class="article-banner" itemprop="image" alt="">
+  {{ else }}
+  <img src="{{ (printf "/%s" .Params.header.image) | relURL }}" class="article-banner" itemprop="image" alt="">
+  {{ end }}
+
+  {{ with .Params.header.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+
+  {{ $img_src2 := urls.Parse .Params.header.profile }}
+  {{ if $img_src2.Scheme }}
+  <img src="{{ .Params.header.profile }}" class = "article-header-profile">
+  {{ else }}
+  <img src="{{ (printf "/%s" .Params.header.profile) | relURL }}" class="article-header-profile" itemprop="image" alt="">
+  {{ end }}
+
+
+</div>
+{{end}}

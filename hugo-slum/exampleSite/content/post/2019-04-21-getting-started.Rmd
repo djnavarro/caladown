@@ -1,0 +1,60 @@
+---
+title: "Tutorial part 1: Getting started"
+author: "Danielle Navarro"
+date: "2019-04-21"
+slug: getting-started
+tags: ["slum", "blogdown"]
+summary: "A sort summary of how to get started using the slumdown package. It discusses how to install the package, set up a new site, and where to look for initial configuration."
+header:
+  caption: "A blank ggplot"
+  image: 'header/theme_dark.png'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+My initial goal in writing the *slum* theme was purely selfish: I use blogdown on [my own blog](https://djnavarro.net) and I wanted to understand how it works. To help me learn, I decided to [read the documentation](https://bookdown.org/yihui/blogdown/) and tinker with the minimalistic [XMin theme](https://github.com/yihui/hugo-xmin). I... um... got a little carried away, and ended up with a fairly flexible blogging template with a few more bells and whistles than I was expecting. I wasn't entirely convinced it would be useful, so I named it *Somewhat-Light Unhelpfully-Minimal* Hugo theme. 
+
+Having created the thing, I decided I might as well document it too...
+
+My assumption is that anyone intending to use the *slum* theme is using it within blogdown rather than some other kind of [Hugo](https://gohugo.io/) website, so the documentation is written with an R user in mind. Additionally, I'll assume that you've never used blogdown or Hugo before, but I do assume you've used [R Markdown](https://rmarkdown.rstudio.com/).
+
+## Creating a slumdown blog
+
+The *slumdown* package is an experiment in creating a simple "blogdown native" Hugo theme, one that assumes that posts are written using R Markdown. It extends the [slum theme for Hugo](https://github.com/djnavarro/hugo-slum) by providing an interface for customising the blog within R and a system for generating plots that use the same colour scheme as the blog post. The *slumdown* package is not on CRAN and so needs to be installed from GitHub:
+
+```{r install}
+# devtools::install_github("djnavarro/slumdown")
+library("slumdown")
+```
+
+By default, the *slumdown* package assumes the source code for the site takes the form of an RStudio project, and will be deployed to GitHub pages, though neither is strictly necessary. To get started:
+
+```{r eval=FALSE}
+slum_new(dir = "path/to/my/slumblog") 
+```
+
+This will create a new RStudio project called `slumblog` (or whatever), download the slum theme and the example site. From within the project, initialise the blog using `blogdown`:
+
+```{r eval=FALSE}
+blogdown::serve_site()
+```
+
+Blogdown will then generate the [example site](https://djnavarro.github.io/hugo-slum/) in the `docs` folder, which provides a short tutorial on how to get started using the package and what it is capable of. 
+
+
+
+## Initial configuration
+
+Most of the settings that you'll initially want to play with are in the `config.toml` file. The file is (I hope) fairly well documented, so you can see what most of the settings do and how to configure them. For example, here's
+a snippet:
+
+```
+# These settings specify the title for your blog, 
+# and the name of the Hugo theme that it uses.
+title = "A minimal Hugo website"
+theme = "hugo-slum"
+```
+
+Take a look at the config file, change a couple of things if you like, and then you're ready to start blogging!

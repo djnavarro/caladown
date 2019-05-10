@@ -1,0 +1,40 @@
+---
+title: "Tutorial part 4: Customising the header"
+author: "Danielle Navarro"
+date: "2019-04-18"
+slug: customising-headers
+tags: ["slum", "blogdown", "slumstyle"]
+summary: "Slumdown allows the user to control the background image at the top of each post, the profile image overlaid in the middle of that image, and the caption attached to the header image. This post describes how this is done."
+header:
+  caption: "A customised header"
+  image: 'header/mpg_dark.png'
+  profile: 'header/custom_profile.png'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+library(slumdown)
+library(tidyverse)
+```
+
+
+Within `slumdown` you can exercise quite a bit of control over the header at the top of each page within the YAML at the top of the post. There are three fields you can customise: `image` provides the path to the header image (relative to the `static/` folder), `caption` is the caption text shown floating over the bottom right of the header image, and the `profile` picture that appears in the middle of the header. All three are optional, and if those fields are not included, then no image (or text) will appear. The relevant lines in the YAML for this post are:
+
+```
+header:
+  caption: "A customised header"
+  image: 'header/mpg_dark.png'
+  profile: 'header/custom_profile.png'
+```
+
+The header image is scaled to fit but otherwise left as is. I have been using images that are 1600x400 pixels in size as the headers. The profile image is scaled to be 70% of the height of the header. 
+
+It is important to note that the description above only pertains to posts and projects. For the home page and other automatically generated pages, no caption is included, and the image and profile are set within the `config.toml` file. Specifically, the following two lines underneath the `[params]` section are used to set the images for those pages:
+
+```
+siteHeader = "header/mpg_dark.png"
+siteProfile = "header/my_profile.png"
+```
+
+
+

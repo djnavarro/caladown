@@ -1,0 +1,12 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+
+  <link rel="stylesheet" href={{ .Site.Params.ColourScheme | relURL }} />
+  {{ with .Params.colourscheme }} <link rel="stylesheet" href={{ . | relURL }} />{{end}}
+  <link rel="stylesheet" href="{{ "/css/et_book.css" | relURL }}" />
+  <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
+
+  {{ partial "head_custom.html" . }}
+</head>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on Slumdown</title>
+    <link>/tags/hugo/</link>
+    <description>Recent content in hugo on Slumdown</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorial part 6: Some notes on Hugo</title>
+      <link>/post/notes-on-hugo/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/notes-on-hugo/</guid>
+      <description>Eventually, this will be an explanation of how the Hugo slum theme is designed, possibly accompanied by a brief tutorial on Hugo.</description>
+    </item>
+    
+  </channel>
+</rss>
