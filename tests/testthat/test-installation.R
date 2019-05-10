@@ -5,6 +5,7 @@
 tmp <- tempdir()
 dir_loc <- file.path(tmp, "slum_loc")
 dir_rem <- file.path(tmp, "slum_rem")
+dir_new <- file.path(tmp, "slum_new")
 
 
 # very weak test of local installation
@@ -67,5 +68,15 @@ test_that("project file created when requested", {
   # one of the two should appear when requested
   build_slum_project(dir_loc)
   expect_true( file.exists(here_file) || file.exists(proj_file) )
+
+})
+
+
+# a little redundant, but a handy little integration test
+test_that("new_slum creates a theme", {
+
+  new_slum(dir_new)
+  dir_theme <- file.path(dir_new, "themes", "hugo-slum")
+  expect_true(dir.exists(dir_theme))
 
 })

@@ -5,7 +5,6 @@ check_slumdown <- function() {
   if(!dir.exists(theme_dir)) {
     warning("The current project doesn't look like a slumdown blog")
   }
-
 }
 
 
