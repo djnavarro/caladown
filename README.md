@@ -1,7 +1,7 @@
 The slumdown package
 ================
 Danielle Navarro
-21 April 2019
+10 May 2019
 
 [![Travis build
 status](https://travis-ci.org/djnavarro/slumdown.svg?branch=master)](https://travis-ci.org/djnavarro/slumdown)
@@ -28,10 +28,10 @@ takes the form of an RStudio project, and will be deployed to GitHub
 pages, though neither is strictly necessary. To get started:
 
 ``` r
-slum_new(dir = "path/to/my/slumblog") 
+new_slum(dir = "desired/path/to/my/blog") 
 ```
 
-This will create a new RStudio project called `slumblog` (or whatever),
+This will create a new RStudio project called `blog` (or whatever),
 download the slum theme and the example site. From within the project,
 initialise the blog using `blogdown`:
 

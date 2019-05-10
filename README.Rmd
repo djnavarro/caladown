@@ -1,7 +1,7 @@
 ---
 title: "The slumdown package"
 author: "Danielle Navarro"
-date: "21 April 2019"
+date: "10 May 2019"
 output: github_document
 ---
 
@@ -22,10 +22,10 @@ library("slumdown")
 By default, the *slumdown* package assumes the source code for the site takes the form of an RStudio project, and will be deployed to GitHub pages, though neither is strictly necessary. To get started:
 
 ```{r eval=FALSE}
-slum_new(dir = "path/to/my/slumblog") 
+new_slum(dir = "desired/path/to/my/blog") 
 ```
 
-This will create a new RStudio project called `slumblog` (or whatever), download the slum theme and the example site. From within the project, initialise the blog using `blogdown`:
+This will create a new RStudio project called `blog` (or whatever), download the slum theme and the example site. From within the project, initialise the blog using `blogdown`:
 
 ```{r eval=FALSE}
 blogdown::serve_site()
