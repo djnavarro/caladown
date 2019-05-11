@@ -35,7 +35,7 @@ build_slum_locally <- function(dir) {
 
   # check that location of the output is
   # safe before attempting to write
-  check_dir_blank(dir)
+  check_if_dir_empty(dir)
 
   # path to the hugo-slum zip file
   theme_zip <- system.file(
@@ -48,7 +48,7 @@ build_slum_locally <- function(dir) {
   dir_sample <- file.path(dir,"themes", "hugo-slum", "exampleSite")
 
   # create the directories for the theme
-  dir.create(dir)
+  if(!dir.exists(dir)) dir.create(dir)
   dir.create(dir_theme)
 
   # unzip the theme itself
