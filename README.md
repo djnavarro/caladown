@@ -9,6 +9,8 @@ status](https://travis-ci.org/djnavarro/slumdown.svg?branch=master)](https://tra
 coverage](https://codecov.io/gh/djnavarro/slumdown/branch/master/graph/badge.svg)](https://codecov.io/gh/djnavarro/slumdown?branch=master)
 ![Lifecycle
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/slumdown)](https://cran.r-project.org/package=slumdown)
 
 The *slumdown* package is an experiment in creating a simple “blogdown
 native” Hugo theme, one that assumes that posts are written using R
@@ -16,11 +18,10 @@ Markdown. It extends the [slum theme for
 Hugo](https://github.com/djnavarro/hugo-slum) by providing an interface
 for customising the blog within R and a system for generating plots that
 use the same colour scheme as the blog post. The *slumdown* package is
-not on CRAN and so needs to be installed from GitHub:
+only available on GitHub:
 
 ``` r
-# devtools::install_github("djnavarro/slumdown")
-library("slumdown")
+remotes::install_github("djnavarro/slumdown")
 ```
 
 By default, the *slumdown* package assumes the source code for the site
@@ -28,7 +29,7 @@ takes the form of an RStudio project, and will be deployed to GitHub
 pages, though neither is strictly necessary. To get started:
 
 ``` r
-new_slum(dir = "desired/path/to/my/blog") 
+slumdown::new_slum("desired/path/to/my/blog") 
 ```
 
 This will create a new RStudio project called `blog` (or whatever),
