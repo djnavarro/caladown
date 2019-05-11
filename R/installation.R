@@ -1,13 +1,12 @@
 
 
-#' Build slumdown blog from remote source
-#'
-#' @importFrom blogdown new_site
-#' @param dir string specifying the blog location
-#' @detail Creates the directory structure for a new slumdown blog using
-#' the github repository as the source. This method of installation is
-#' a wrapper to blogdown::new_site, and requires internet access.
-#' @export
+# Build slumdown blog from remote source
+#
+# @importFrom blogdown new_site
+# @param dir string specifying the blog location
+# @detail Creates the directory structure for a new slumdown blog using
+# the github repository as the source. This method of installation is
+# a wrapper to blogdown::new_site, and requires internet access.
 build_slum_remotely <- function(dir) {
   blogdown::new_site(
     dir = dir,
@@ -23,14 +22,13 @@ build_slum_remotely <- function(dir) {
 
 
 
-#' Build slumdown blog from local source
-#'
-#' @importFrom utils unzip
-#' @param dir string specifying the blog location
-#' @details Creates the directory structure for a new slumdown blog using
-#' the local copy of the hugo-slum.zip file. It does not rely on internet
-#' resources.
-#' @export
+# Build slumdown blog from local source
+#
+# @importFrom utils unzip
+# @param dir string specifying the blog location
+# @details Creates the directory structure for a new slumdown blog using
+# the local copy of the hugo-slum.zip file. It does not rely on internet
+# resources.
 build_slum_locally <- function(dir) {
 
   # check that location of the output is
@@ -83,12 +81,11 @@ build_slum_locally <- function(dir) {
 
 
 
-#' Adds a nojekyll file to a slumdown blog
-#'
-#' @param dir Where is the blog directory
-#' @param quietly Suppress the output message (default = FALSE)
-#' @details Adds the .nojekyll file for github pages deployment
-#' @export
+# Adds a nojekyll file to a slumdown blog
+#
+# @param dir Where is the blog directory
+# @param quietly Suppress the output message (default = FALSE)
+# @details Adds the .nojekyll file for github pages deployment
 build_slum_nojekyll <- function(dir, quietly = FALSE) {
 
   # paths
@@ -114,13 +111,12 @@ build_slum_nojekyll <- function(dir, quietly = FALSE) {
 
 
 
-#' Adds a project file to slumdown blog
-#'
-#' @param dir Where is the blog directory
-#' @param open Should RStudio open the project?
-#' @details Creates an RStudio project file to specify project root.
-#' @importFrom usethis create_project
-#' @export
+# Adds a project file to slumdown blog
+#
+# @param dir Where is the blog directory
+# @param open Should RStudio open the project?
+# @details Creates an RStudio project file to specify project root.
+# @importFrom usethis create_project
 build_slum_project <- function(dir, open = interactive()) {
 
   # throw an error if rstudio is not available
@@ -134,12 +130,11 @@ build_slum_project <- function(dir, open = interactive()) {
 }
 
 
-#' Adds a here sentinel file to a slumdown blog
-#'
-#' @param dir Where is the blog directory
-#' @param quietly Suppress the output message (default = FALSE)
-#' @details Adds the .here file to specify project root
-#' @export
+# Adds a here sentinel file to a slumdown blog
+#
+# @param dir Where is the blog directory
+# @param quietly Suppress the output message (default = FALSE)
+# @details Adds the .here file to specify project root
 build_slum_here <- function(dir, quietly = FALSE) {
 
   # throw error if directory doesn't exist
