@@ -20,4 +20,19 @@ test_that("there are two palettes on default install", {
 })
 
 
+test_that("palettes are appropriately formed", {
+
+  moveto(dir_null)
+  expect_error(slum_palette("light"), "palette not found")
+
+  moveto(dir_slum)
+  expect_error(slum_palette("not-a-real-palette"), "palette not found")
+  expect_named(
+    slum_palette("light"),
+    c("pagecolour", "maintext", "faded", "highlight", "lowlight")
+  )
+
+})
+
+
 setwd(wd)
