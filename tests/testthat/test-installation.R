@@ -103,14 +103,19 @@ test_that("project file created when requested", {
 })
 
 
-# a little redundant, but a handy integration test
 test_that("new_slum creates a theme", {
 
   rstudio_check <- try(check_for_rstudio(), silent = TRUE)
+  dir_theme <- file.path(dir_new, "themes", "hugo-slum")
+
   if(!is(rstudio_check, "try-error")) {
     new_slum(dir_new, remote = FALSE, project = "rstudio", nojekyll = TRUE)
-    dir_theme <- file.path(dir_new, "themes", "hugo-slum")
     expect_true(dir.exists(dir_theme))
+
+  } else {
+    new_slum(dir_new, remote = FALSE, project = "here", nojekyll = TRUE)
+    expect_true(dir.exists(dir_theme))
+
   }
 
 })

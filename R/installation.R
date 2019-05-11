@@ -134,9 +134,31 @@ build_slum_project <- function(dir, open = interactive()) {
 }
 
 
-build_slum_here <- function(dir) {
-  # WRITE ME
+#' Adds a here sentinel file to a slumdown blog
+#'
+#' @param dir Where is the blog directory
+#' @param quietly Suppress the output message (default = FALSE)
+#' @details Adds the .here file to specify project root
+#' @export
+build_slum_here <- function(dir, quietly = FALSE) {
+
+  # throw error if directory doesn't exist
+  if(!dir.exists(dir)) {
+    stop("Specified location for .here does not exist")
+  }
+
+  # create blank file
+  writeLines(character(), file.path(dir, ".here"))
+
+  # optionally, message user
+  if(!quietly) {
+    message("Created file .here in", dir)
+  }
+
+  # don't return anything
+  return(invisible(NULL))
 }
+
 
 
 #' Creates new slumdown site
