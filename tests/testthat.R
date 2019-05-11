@@ -7,7 +7,7 @@ moveto <- function(dir) {
   # move to the specified directory
   setwd(dir)
 
-  `# now simulate what happens on loading the here package
+  # now simulate what happens on loading the here package
   env <- here:::.root_env
   tryCatch(env$f <- env$crit$make_fix_file(), error = function(e) {
     env$f <- function(...) {file.path(dir, ...)}
