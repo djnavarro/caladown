@@ -3,24 +3,31 @@
 #' List the colour palettes that slum knows
 #' @importFrom here here
 #' @export
-slum_listpalettes <- function() {
+slum_palette_paths <- function() {
 
-  check_for_slumdown()
+  is_slum <- check_for_slumdown()
 
-  # list the styles from the theme directory
-  base_css <- here::here("themes", "hugo-slum", "static", "css")
-  styles <- list.files(
-    base_css, pattern = "palette_.*\\.css", full.names = TRUE)
+  if(!is_slum) {
+    return(character(0))
 
-  # list the styles from the user directory
-  user_css <- here::here("static", "css")
-  if(dir.exists(user_css)) {
-    user_styles <- list.files(
-      user_css, pattern = "palette_.*\\.css", full.names = TRUE)
-    styles <- c(user_styles, styles)
+  } else {
+
+    # list the styles from the theme directory
+    base_css <- here::here("themes", "hugo-slum", "static", "css")
+    styles <- list.files(
+      base_css, pattern = "palette_.*\\.css", full.names = TRUE)
+
+    # list the styles from the user directory
+    user_css <- here::here("static", "css")
+    if(dir.exists(user_css)) {
+      user_styles <- list.files(
+        user_css, pattern = "palette_.*\\.css", full.names = TRUE)
+      styles <- c(user_styles, styles)
+    }
+
+    return(styles)
+
   }
-
-  return(styles)
 }
 
 #' Retrieve palette information
@@ -30,7 +37,7 @@ slum_listpalettes <- function() {
 #' @return A named character vector
 #' @importFrom here here
 #' @export
-slum_getpalette <- function(palette) {
+slum_palette <- function(palette) {
 
   check_for_slumdown()
 
@@ -81,7 +88,7 @@ slum_getpalette <- function(palette) {
 #' @details Writes a file to the user directory
 #' @importFrom here here
 #' @export
-slum_addpalette <- function(name, pagecolour, maintext, faded, highlight, lowlight, overwrite = FALSE) {
+slum_palette_create <- function(name, pagecolour, maintext, faded, highlight, lowlight, overwrite = FALSE) {
 
   check_for_slumdown()
 
@@ -123,6 +130,6 @@ slum_addpalette <- function(name, pagecolour, maintext, faded, highlight, lowlig
 #' @importFrom knitr opts_chunk
 #' @export
 slum_setdevicecolour <- function(palette = "dark", name = "pagecolour") {
-  knitr::opts_chunk$set(dev.args = list(bg=slum_getpalette(palette)[name]))
+  knitr::opts_chunk$set(dev.args = list(bg=slum_palette(palette)[name]))
 }
 

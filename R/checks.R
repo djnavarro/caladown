@@ -6,10 +6,13 @@
 
 
 check_for_slumdown <- function(dir = here::here("themes", "hugo-slum")) {
+
   if(!dir.exists(dir)) {
     warning("Cannot find the hugo-slum theme")
+    return(invisible(FALSE))
   }
-  return(invisible(NULL))
+
+  return(invisible(TRUE))
 }
 
 

@@ -1,0 +1,23 @@
+
+wd <- getwd()
+
+test_that("there are two palettes on default install", {
+
+  palettes <- file.path(dir_slum, "themes", "hugo-slum", "static","css",
+                        c("palette_dark.css", "palette_light.css"))
+  palettes <- normalizePath(palettes)
+
+  moveto(dir_slum)
+  expect_equal(normalizePath(slum_palette_paths()), palettes)
+
+  moveto(file.path(dir_slum, "content"))
+  expect_equal(normalizePath(slum_palette_paths()), palettes)
+
+  moveto(dir_null)
+  expect_equal(slum_palette_paths(), character(0))
+  expect_warning(slum_palette_paths(), "Cannot find the hugo-slum theme")
+
+})
+
+
+setwd(wd)

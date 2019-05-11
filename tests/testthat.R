@@ -1,6 +1,19 @@
 library(testthat)
 library(slumdown)
 
+# helper function to reset the project root for testing purposes
+moveto <- function(dir) {
+
+  # move to the specified directory
+  setwd(dir)
+
+  # now simulate what happens on loading the here package
+  env <- here:::.root_env
+  tryCatch(env$f <- env$crit$make_fix_file(), error = function(e) {
+    env$f <- function(...) {file.path(dir, ...)}
+  })
+}
+
 # temporary directories used by the installation tests
 tmp <- tempdir()
 dir_loc <- file.path(tmp, "slum_loc")
