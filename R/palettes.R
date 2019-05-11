@@ -135,7 +135,7 @@ slum_palette_create <- function(name, pagecolour, maintext, faded, highlight, lo
 #'
 #' @importFrom knitr opts_chunk
 #' @export
-slum_setdevicecolour <- function(palette = "dark", name = "pagecolour") {
+slum_plot_background <- function(palette = "dark", name = "pagecolour") {
   knitr::opts_chunk$set(dev.args = list(bg=slum_palette(palette)[name]))
 }
 
