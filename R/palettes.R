@@ -90,7 +90,10 @@ slum_palette <- function(palette) {
 #' @export
 slum_palette_create <- function(name, pagecolour, maintext, faded, highlight, lowlight, overwrite = FALSE) {
 
-  check_for_slumdown()
+  is_slum <- suppressWarnings(check_for_slumdown())
+  if(!is_slum) {
+    stop("Cannot find the hugo-slum theme")
+  }
 
   # content of the palette file
   pal <- c(
@@ -117,6 +120,9 @@ slum_palette_create <- function(name, pagecolour, maintext, faded, highlight, lo
   } else {
     writeLines(pal, file.path(path, fname))
   }
+
+  # invisibly return the palette
+  return(invisible(slum_palette(name)))
 
 }
 
