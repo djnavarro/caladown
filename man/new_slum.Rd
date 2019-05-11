@@ -4,14 +4,15 @@
 \alias{new_slum}
 \title{Creates new slumdown site}
 \usage{
-new_slum(dir, remote = FALSE, project = TRUE, nojekyll = TRUE)
+new_slum(dir, remote = FALSE, project = "rstudio", nojekyll = TRUE)
 }
 \arguments{
 \item{dir}{Where to create the new blog}
 
 \item{remote}{Install from github (remote = TRUE) or locally (remote = FALSE)}
 
-\item{project}{Create files to specify location of project root?}
+\item{project}{String specifying whether to use an rstudio project
+(project = "rstudio") or a .here file (project = "here")}
 
 \item{nojekyll}{Add a nojekyll file?}
 }

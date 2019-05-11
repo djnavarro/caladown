@@ -14,5 +14,14 @@ check_dir_blank <- function(dir) {
 
 
 check_for_rstudio <- function() {
-  rstudioapi::verifyAvailable()
+
+  # throw error if the rstudioapi package is missing
+  if(class(try(find.package("rstudioapi"))) == "try-error") {
+    stop("rstudio is not available")
+  }
+
+  # throw error if the package says rstudio is unavailable
+  if(!rstudioapi::isAvailable()) {
+    stop("rstudio is not available")
+  }
 }

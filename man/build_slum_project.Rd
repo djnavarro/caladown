@@ -15,5 +15,5 @@ build_slum_project(dir, open = interactive())
 Adds a project file to slumdown blog
 }
 \details{
-Creates a project or sentinel .here file to specify project root
+Creates an RStudio project file to specify project root.
 }

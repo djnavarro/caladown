@@ -134,6 +134,10 @@ build_slum_project <- function(dir, open = interactive()) {
 }
 
 
+build_slum_here <- function(dir) {
+  # WRITE ME
+}
+
 
 #' Creates new slumdown site
 #'
