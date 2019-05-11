@@ -14,7 +14,7 @@ theme_slum <- function(palette = "dark", ...) {
 
   # check that this is a slumdown project and
   # retrieve the palette
-  check_slumdown()
+  check_for_slumdown()
   pal <- slum_getpalette(palette)
 
   ggplot2::theme_grey(...) %+replace%

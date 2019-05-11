@@ -2,13 +2,6 @@
 # does not prevent side effects. Files created by a test are not deleted
 
 
-# temporary directories
-tmp <- tempdir()
-dir_loc <- file.path(tmp, "slum_loc")
-dir_rem <- file.path(tmp, "slum_rem")
-dir_new <- file.path(tmp, "slum_new")
-
-
 # weak test of local installation
 test_that("local installation produces files", {
 

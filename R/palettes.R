@@ -5,7 +5,7 @@
 #' @export
 slum_listpalettes <- function() {
 
-  check_slumdown()
+  check_for_slumdown()
 
   # list the styles from the theme directory
   base_css <- here::here("themes", "hugo-slum", "static", "css")
@@ -32,7 +32,7 @@ slum_listpalettes <- function() {
 #' @export
 slum_getpalette <- function(palette) {
 
-  check_slumdown()
+  check_for_slumdown()
 
   # look in user directory first
   palette_file <- here::here("static", "css",
@@ -83,7 +83,7 @@ slum_getpalette <- function(palette) {
 #' @export
 slum_addpalette <- function(name, pagecolour, maintext, faded, highlight, lowlight, overwrite = FALSE) {
 
-  check_slumdown()
+  check_for_slumdown()
 
   # content of the palette file
   pal <- c(
