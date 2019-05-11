@@ -18,4 +18,17 @@ test_that("package detects slumdown projects", {
 })
 
 
+test_that("package detects emptiness of directories", {
+
+  # throw error if not empty
+  expect_error(check_if_dir_empty(dir_slum), "exists and is not empty")
+
+  # return null if exists and empty
+  expect_null(check_if_dir_empty(dir_null))
+
+  # return null does not exist
+  expect_null(check_if_dir_empty(dir_fake))
+
+})
+
 setwd(wd)
