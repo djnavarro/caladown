@@ -11,3 +11,8 @@ check_slumdown <- function() {
 check_dir_blank <- function(dir) {
 
 }
+
+
+check_for_rstudio <- function() {
+  rstudioapi::verifyAvailable()
+}

@@ -17,7 +17,8 @@ Imports:
     blogdown,
     here,
     usethis,
-    knitr
+    knitr,
+    rstudioapi
 Suggests: 
     testthat (>= 2.1.0),
     covr

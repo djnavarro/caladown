@@ -118,12 +118,19 @@ build_slum_nojekyll <- function(dir, quietly = FALSE) {
 #'
 #' @param dir Where is the blog directory
 #' @param open Should RStudio open the project?
-#' @details Creates a project or sentinel .here file to specify project root
+#' @details Creates an RStudio project file to specify project root.
 #' @importFrom usethis create_project
 #' @export
 build_slum_project <- function(dir, open = interactive()) {
-  dir <- normalizePath(dir)
-  usethis::create_project(path = dir, open = open)
+
+  # throw an error if rstudio is not available
+  check_for_rstudio()
+
+  # otherwise create the project
+  usethis::create_project(
+    path =  normalizePath(dir),
+    open = open
+  )
 }
 
 
@@ -132,24 +139,35 @@ build_slum_project <- function(dir, open = interactive()) {
 #'
 #' @param dir Where to create the new blog
 #' @param remote Install from github (remote = TRUE) or locally (remote = FALSE)
-#' @param project Create files to specify location of project root?
+#' @param project String specifying whether to use an rstudio project
+#' (project = "rstudio") or a .here file (project = "here")
 #' @param nojekyll Add a nojekyll file?
 #' @details Create a new slumdown blog
 #' @export
-new_slum <- function(dir, remote = FALSE, project = TRUE, nojekyll = TRUE) {
+new_slum <- function(dir, remote = FALSE, project = "rstudio", nojekyll = TRUE) {
 
+  # first build the bulk of the blog
   if(remote) {
     build_slum_remotely(dir)
+
   } else {
     build_slum_locally(dir)
   }
 
+  # add a nojekyll file if requested
   if(nojekyll) {
     build_slum_nojekyll(dir)
   }
 
-  if(project) {
+  # add files specifying the location of the project root
+  if(project == "rstudio") {
     build_slum_project(dir)
+
+  } else if(project == "here") {
+    build_slum_here(dir)
+
+  } else {
+    stop("Value for `project` must be 'rstudio' or 'here'")
   }
 
   return(invisible(NULL))
