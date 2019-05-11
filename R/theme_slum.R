@@ -9,15 +9,25 @@
 #' @importFrom ggplot2 theme
 #' @importFrom ggplot2 element_rect
 #' @importFrom ggplot2 element_text
+#' @importFrom methods is
 #' @export
 theme_slum <- function(palette = "dark", ...) {
 
   # check that this is a slumdown project and
   # retrieve the palette
-  check_for_slumdown()
-  pal <- slum_palette(palette)
+  is_slum <- suppressMessages(check_for_slumdown())
 
-  ggplot2::theme_grey(...) %+replace%
+  if(!is_slum) {
+    return(theme_grey(...))
+  }
+
+
+  pal <- try(slum_palette(palette))
+  if(is(pal, "try-error")) {
+    return(theme_grey(...))
+  }
+
+  th <- ggplot2::theme_grey(...) %+replace%
     ggplot2::theme(
       plot.background = ggplot2::element_rect(fill = pal["pagecolour"], colour = pal["pagecolour"]),
       panel.background = ggplot2::element_rect(fill = pal["faded"], colour = pal["faded"]),
@@ -31,4 +41,7 @@ theme_slum <- function(palette = "dark", ...) {
       strip.background = ggplot2::element_rect(fill = pal["maintext"], colour = pal["maintext"]),
       strip.text = ggplot2::element_text(colour = pal["pagecolour"])
     )
+
+  return(th)
 }
+
