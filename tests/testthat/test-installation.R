@@ -27,12 +27,13 @@ test_that("remote and local installations are identical", {
   skip_if_offline()
   skip_on_cran()
 
-  # build a local version and from the remote source
-  build_slum_locally(dir_loc)
+  # build a local version and from the remote source (note that the local
+  # is a different to the other local to avoid the "non-empty" dir error)
+  build_slum_locally(dir_loc2)
   build_slum_remotely(dir_rem)
 
   # list all the files
-  fl <- list.files(dir_loc, recursive = TRUE)
+  fl <- list.files(dir_loc2, recursive = TRUE)
   fr <- list.files(dir_rem, recursive = TRUE)
 
   # are they the same?
