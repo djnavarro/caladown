@@ -23,13 +23,13 @@ The *slum* theme for Hugo allows some degree of flexibility in visual styling, w
 
 
 ```{r, warning=FALSE, message=FALSE}
-slum_listpalettes()
+slumdown::slum_palette_paths()
 ```
 
 A palette is not especially complicated, and is defined by a set of five named colours:
 
 ```{r}
-slum_getpalette("dark")
+slumdown::slum_palette("dark")
 ```
 
 When creating a new post or project page, the *slum* theme for Hugo will automatically use the default palette (which is specified in the `config.toml` file). However, you can override that default for a specific post. For example, the current post uses the *light* palette, and it does this by including the following line in the YAML header:
@@ -54,7 +54,7 @@ The palette file is quite small and if you felt the need to do so, you could cre
 However the `slumdown` package attempts to make your life a little easier by providing a helper function that will generate a palette file for you. For example, suppose I wanted to create a new palette based on Emi Tanaka's [kunoichi template for xaringan](https://yihui.name/en/2018/07/emi-tanaka/). I could to that as follows:
 
 ```{r}
-slum_addpalette(
+slumdown::slum_palette_create(
   name = "kunoichi", pagecolour = "#562457", 
   maintext = "#ffffff", faded = "#ba68c8", 
   highlight = "#ffa500", lowlight = "#bbbbbb",

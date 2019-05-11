@@ -13,8 +13,8 @@
 
   
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Slumdown">
-<meta property="og:description" content="Tutorial part 3: Colour palettes in slumdown">
+<meta property="og:title" content="Tutorial part 3: Colour palettes in slumdown">
+<meta property="og:description" content="The main reason I wrote slumdown (besides boredom) was to make it easy to  include user-defined colours palettes in blogdown, and expose those palettes to R so that (for instance) plots can be drawn in a style that matches the blog style. This tutorial introduces this palette system.">
 <meta property="og:image" content="https://djnavarro.github.io/hugo-slum/header/slumdown.png">
 
 </head>
@@ -72,11 +72,11 @@
 
 
 <p>The <em>slum</em> theme for Hugo allows some degree of flexibility in visual styling, which is really nice when blogging. Most of the time I want my blog to use a consistent palette, but then there are occasions where I might want a single page to use a different colour scheme, and I don’t want to have to fiddle with low level settings to do that. Relatedly, one thing that has caused me frustration with blogdown is that the content generated on the R site doesn’t use the same visual style as the Hugo theme. The <code>slumdown</code> package tries to make this a little easier. For this blog, the default colour scheme is based on the <em>dark</em> palette. The following palettes are available by default:</p>
-<pre class="r"><code>slum_listpalettes()
-## [1] &quot;C:/Users/Dan/Desktop/ns/themes/hugo-slum/static/css/palette_dark.css&quot; 
-## [2] &quot;C:/Users/Dan/Desktop/ns/themes/hugo-slum/static/css/palette_light.css&quot;</code></pre>
+<pre class="r"><code>slumdown::slum_palette_paths()
+## [1] &quot;C:/Users/Dan/Desktop/blahblah/themes/hugo-slum/static/css/palette_dark.css&quot; 
+## [2] &quot;C:/Users/Dan/Desktop/blahblah/themes/hugo-slum/static/css/palette_light.css&quot;</code></pre>
 <p>A palette is not especially complicated, and is defined by a set of five named colours:</p>
-<pre class="r"><code>slum_getpalette(&quot;dark&quot;)
+<pre class="r"><code>slumdown::slum_palette(&quot;dark&quot;)
 ## pagecolour   maintext      faded  highlight   lowlight 
 ##  &quot;#333333&quot;  &quot;#dddddd&quot;  &quot;#888888&quot;  &quot;#ff69b4&quot;  &quot;#ba68c8&quot;</code></pre>
 <p>When creating a new post or project page, the <em>slum</em> theme for Hugo will automatically use the default palette (which is specified in the <code>config.toml</code> file). However, you can override that default for a specific post. For example, the current post uses the <em>light</em> palette, and it does this by including the following line in the YAML header:</p>
@@ -91,7 +91,7 @@
   --lowlight: #8a2be2;
 }</code></pre>
 <p>However the <code>slumdown</code> package attempts to make your life a little easier by providing a helper function that will generate a palette file for you. For example, suppose I wanted to create a new palette based on Emi Tanaka’s <a href="https://yihui.name/en/2018/07/emi-tanaka/">kunoichi template for xaringan</a>. I could to that as follows:</p>
-<pre class="r"><code>slum_addpalette(
+<pre class="r"><code>slumdown::slum_palette_create(
   name = &quot;kunoichi&quot;, pagecolour = &quot;#562457&quot;, 
   maintext = &quot;#ffffff&quot;, faded = &quot;#ba68c8&quot;, 
   highlight = &quot;#ffa500&quot;, lowlight = &quot;#bbbbbb&quot;,

@@ -28,15 +28,23 @@ p {
   vertical-align: baseline;
 }
 
-/* styling for blog post list */
+/* ------ styling for blog post list ------  */
+
+/* the outer container takes up the whole space */
+.prettylistcontainer {
+  width: 900px;
+}
+
+/* the list itself is only 85% of the width */
 ul.prettylist {
   list-style-type: none;
   list-style-image: none;
   list-style-position: inside;
-  width: 100%;
+  width: 85%;
 }
 li.prettylist {
   padding: 10px;
+  width: 100%;
 }
 p.prettylist {
   padding-left: 5px;
@@ -44,6 +52,7 @@ p.prettylist {
   padding-top: 5px;
   padding-right: 15%;
   float: left;
+  width: 100%;
 }
 span.prettylistdate{
   color: var(--faded);
@@ -183,6 +192,7 @@ hr {
 footer {
   text-align: center;
   color: var(--faded);
+  display:block;
 }
 footer a:visited, footer a:link {
   text-decoration: none;
@@ -239,4 +249,6 @@ thead, tfoot, tr:nth-child(even) { background: #eee; }
   transform: translate(-50%, -50%);
   max-height: 70%;
 }
-
+.article-banner {
+  width: 100%;
+}
