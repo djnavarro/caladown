@@ -19,12 +19,14 @@ theme_slum <- function(palette = "dark", ...) {
 
   if(!is_slum) {
     return(theme_grey(...))
+    warning("Could not find hugo-slum theme, defaulting to `theme_grey`")
   }
 
 
   pal <- try(slum_palette(palette))
   if(is(pal, "try-error")) {
     return(theme_grey(...))
+    warning("Could not find palette, defaulting to `theme_grey`")
   }
 
   th <- ggplot2::theme_grey(...) %+replace%
