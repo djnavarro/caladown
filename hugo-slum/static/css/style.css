@@ -150,8 +150,7 @@ code {
 /* links */
 a:link, a:visited {
   color: var(--highlight);
-  font-style: italic;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 
