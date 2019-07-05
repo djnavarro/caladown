@@ -9,3 +9,6 @@
 ^README_files$
 ^hugo-slum$
 ^helpers.R$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
