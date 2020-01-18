@@ -1,7 +1,7 @@
 The slumdown package
 ================
 Danielle Navarro
-10 May 2019
+19 Jan 2020
 
 <!-- badges: start -->
 
@@ -14,6 +14,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/slumdown)](https://cran.r-project.org/package=slumdown)
 <!-- badges: end -->
+
+<img src="README_files/slumdown.png" width="30%" align="right" />
 
 The *slumdown* package is an experiment in creating a simple “blogdown
 native” Hugo theme, one that assumes that posts are written using R
