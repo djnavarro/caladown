@@ -1,7 +1,7 @@
 Package: slumdown
 Type: Package
 Title: A Hugo Theme for Blogdown
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person(given = "Danielle",
            family = "Navarro",
@@ -17,15 +17,19 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/djnavarro/slumdown
 BugReports: https://github.com/djnavarro/slumdown/issues
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Imports: 
-    ggplot2,
     blogdown,
-    here,
-    usethis,
-    knitr,
+    hugodown,
     rstudioapi,
-    methods
+    usethis,
+    curl,
+    utils,
+    brio,
+    fs,
+    rappdirs,
+    rmarkdown
 Suggests: 
     testthat (>= 2.1.0),
-    covr
+    covr,
+    thematic
