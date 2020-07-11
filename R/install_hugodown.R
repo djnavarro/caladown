@@ -27,7 +27,7 @@ create_hugodown_slum <- function(
   )
   exdir <- fs::file_temp("hugodown")
   utils::unzip(zip, exdir = exdir)
-  exdir <- fs::path(exdir, "hugo-slum-hugodown") # update when hugodown branch is merged
+  exdir <- fs::path(exdir, "hugo-slum-master")
 
   usethis::ui_done("Copying site components")
   dir_copy_contents(fs::path(exdir, "exampleSite"), path)
