@@ -96,7 +96,7 @@ slum_write_hugodown <- function(path) {
 slum_write_custom_head <- function(path) {
 
   fs::dir_create(fs::path(path, "static", "css"))
-  fs::file_copy(fs::path_package("hugodown", "academic", "highlight-light.css"), fs::path(path, "static", "css"))
+  fs::file_copy(fs::path_package("slumdown", "slum", "highlight.css"), fs::path(path, "static", "css"))
 
   head <- fs::path(path, "layouts", "partials", "head_custom.html")
   fs::dir_create(fs::path_dir(head))
@@ -107,7 +107,7 @@ slum_write_custom_head <- function(path) {
   brio::write_lines(c(
     lines,
     "",
-    "<link rel='stylesheet' href='{{ \"css/highlight-light.css\" | relURL }}' title='hl-light'>",
+    "<link rel='stylesheet' href='{{ \"css/highlight.css\" | relURL }}' title='hl-light'>",
     "{{ range .Params.html_dependencies }}",
     "  {{ . | safeHTML }}",
     "{{ end }}"
