@@ -49,6 +49,9 @@ create_hugodown_slum <- function(
   # Patch <head>
   slum_write_custom_head(path)
 
+  slum_patch_config(path)
+
+
   # The slum example site has .Rmd posts to patch
   usethis::ui_done("Patching example site")
   rmd_posts <- fs::dir_ls(fs::path(path, "content"), glob = "*.Rmd", recurse = TRUE)
@@ -94,7 +97,6 @@ slum_write_custom_head <- function(path) {
 
   fs::dir_create(fs::path(path, "static", "css"))
   fs::file_copy(fs::path_package("hugodown", "academic", "highlight-light.css"), fs::path(path, "static", "css"))
-  fs::file_copy(fs::path_package("hugodown", "academic", "highlight-dark.css"), fs::path(path, "static", "css"))
 
   head <- fs::path(path, "layouts", "partials", "head_custom.html")
   fs::dir_create(fs::path_dir(head))
@@ -106,12 +108,42 @@ slum_write_custom_head <- function(path) {
     lines,
     "",
     "<link rel='stylesheet' href='{{ \"css/highlight-light.css\" | relURL }}' title='hl-light'>",
-    "<link rel='stylesheet' href='{{ \"css/highlight-dark.css\" | relURL }}' title='hl-dark' disabled>",
     "{{ range .Params.html_dependencies }}",
     "  {{ . | safeHTML }}",
     "{{ end }}"
   ), head)
 }
+
+
+slum_patch_config <- function(path) {
+
+  config <- fs::path(path, "config.toml")
+  lines <- brio::read_lines(config)
+
+  # append to existing
+  brio::write_lines(c(
+    lines,
+    '',
+    '# needed for hugodown',
+    '[markup]',
+    '  defaultMarkdownHandler = "goldmark"',
+    '  [markup.goldmark]',
+    '    [markup.goldmark.renderer]',
+    '      unsafe = true  # Enable user to embed HTML snippets in Markdown content.',
+    '  [markup.highlight]',
+    '    codeFences = true',
+    '  [markup.tableOfContents]',
+    '    startLevel = 2',
+    '    endLevel = 3',
+    ''
+  ), config)
+
+
+}
+
+
+
+
 
 
 
@@ -124,6 +156,7 @@ dir_copy_contents <- function(path, new_path) {
     }
   }
 }
+
 
 
 
