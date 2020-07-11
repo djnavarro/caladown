@@ -22,7 +22,7 @@ create_hugodown_slum <- function(
   usethis::use_rstudio()
   usethis::ui_done("Downloading slum theme")
   zip <- curl::curl_download(
-    "https://github.com/djnavarro/hugo-slum/archive/hugodown.zip",
+    "https://github.com/djnavarro/hugo-slum/archive/master.zip",
     fs::file_temp("hugodown")
   )
   exdir <- fs::file_temp("hugodown")

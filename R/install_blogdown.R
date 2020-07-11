@@ -14,7 +14,7 @@ create_blogdown_slum <- function(
 ) {
   blogdown::new_site(
     dir = path,
-    theme = "https://github.com/djnavarro/hugo-slum/archive/hugodown.zip",
+    theme = "https://github.com/djnavarro/hugo-slum/archive/master.zip",
     sample = FALSE,
     ...
   )
