@@ -61,8 +61,16 @@ create_hugodown_slum <- function(
   #  file_copy(path_package("hugodown", "academic", "README.md"), path) # slum doesn't have one :|
 
   # build the tutorial posts
-  usethis::ui_done("Building site")
-  lapply(hugodown::site_outdated(site = path), function(x) invisible(suppressMessages(suppressWarnings(rmarkdown::render(x,quiet = TRUE)))))
+  usethis::ui_done("Starting site render")
+  build_post <- function(post_path) {
+    split_path <- fs::path_split(post_path)[[1]]
+    local_root <- which(split_path == "content")
+    tidy_path <- fs::path_join(split_path[local_root:(length(split_path))])
+    usethis::ui_line(paste("    rendering", tidy_path))
+    suppressWarnings(rmarkdown::render(post_path, quiet = TRUE))
+  }
+  lapply(hugodown::site_outdated(site = path), build_post)
+  usethis::ui_done("Completed site render")
 
   # Can we open config files for editing in new session? Or should we have
   # edit_config()
