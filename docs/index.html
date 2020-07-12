@@ -76,7 +76,15 @@
 <!-- badges: start -->
 <p><a href="https://travis-ci.org/djnavarro/slumdown"><img src="https://travis-ci.org/djnavarro/slumdown.svg?branch=master" alt="Travis build status"></a> <a href="https://codecov.io/gh/djnavarro/slumdown?branch=master"><img src="https://codecov.io/gh/djnavarro/slumdown/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle experimental"><a href="https://cran.r-project.org/package=slumdown"><img src="https://www.r-pkg.org/badges/version/slumdown" alt="CRAN status"></a> <!-- badges: end --></p>
 <!--<img src="README_files/slumdown.png" width="30%" align="right" />-->
-<p>A major rewrite of slumdown is currently in progress!</p>
+<p>The goal of slumdown is to allow R users to create lightweight websites powered by Hugo and is designed to be compatible with both <a href="https://hugodown.r-lib.org/">hugodown</a> and <a href="https://bookdown.org/yihui/blogdown/">blogdown</a>, and allows users to generate graphics that match the visual style of the site via the <a href="https://rstudio.github.io/thematic/">thematic</a> package. You can see an example site at:</p>
+<p><a href="https://djnavarro.github.io/hugo-slum/" class="uri">https://djnavarro.github.io/hugo-slum/</a></p>
+<p>There are two components to slumdown, a <a href="https://github.com/djnavarro/hugo-slum">Hugo theme</a> and an <a href="https://github.com/djnavarro/slumdown">R package</a>. The simplest way to get started is simply to download the R package from GitHub using the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"djnavarro/slumdown"</span>)</pre></div>
+<p>Hugodown and blogdown are structured differently, so you must choose which system you wish to use at the outset. If you want to use blogdown, you can create a new site as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">slumdown</span><span class="kw ns">::</span><span class="fu"><a href="reference/create_blogdown_slum.html">create_blogdown_slum</a></span>(<span class="st">"path_to_blog_folder"</span>)</pre></div>
+<p>For hugodown, the command is:</p>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">slumdown</span><span class="kw ns">::</span><span class="fu"><a href="reference/create_hugodown_slum.html">create_hugodown_slum</a></span>(<span class="st">"path_to_blog_folder"</span>)</pre></div>
+<p>At present these are the only two functions exported by the slumdown package (documentation is <a href="https://slumdown.djnavarro.net/">here</a>, but very minimal at the moment). For more information, it is probably best to look at the <a href="https://djnavarro.github.io/hugo-slum/post/">tutorial</a> section of the example site.</p>
 </div>
   </div>
 
