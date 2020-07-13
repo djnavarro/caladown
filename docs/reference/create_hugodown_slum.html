@@ -120,7 +120,8 @@
     <pre class="usage"><span class='fu'>create_hugodown_slum</span>(
   <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
   <span class='kw'>open</span> <span class='kw'>=</span> <span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/is_interactive.html'>is_interactive</a></span>(),
-  <span class='kw'>rstudio</span> <span class='kw'>=</span> <span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rstudioapi/man/isAvailable.html'>isAvailable</a></span>()
+  <span class='kw'>rstudio</span> <span class='kw'>=</span> <span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rstudioapi/man/isAvailable.html'>isAvailable</a></span>(),
+  <span class='kw'>publish_dir</span> <span class='kw'>=</span> <span class='st'>"public"</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -137,6 +138,10 @@
     <tr>
       <th>rstudio</th>
       <td><p>Create RStudio project?</p></td>
+    </tr>
+    <tr>
+      <th>publish_dir</th>
+      <td><p>Folder to publish to (typically "public" or "docs")</p></td>
     </tr>
     </table>
 

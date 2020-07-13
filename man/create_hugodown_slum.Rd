@@ -7,7 +7,8 @@
 create_hugodown_slum(
   path = ".",
   open = rlang::is_interactive(),
-  rstudio = rstudioapi::isAvailable()
+  rstudio = rstudioapi::isAvailable(),
+  publish_dir = "public"
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ create_hugodown_slum(
 \item{open}{Open new site after creation?}
 
 \item{rstudio}{Create RStudio project?}
+
+\item{publish_dir}{Folder to publish to (typically "public" or "docs")}
 }
 \description{
 Create site with hugodown
