@@ -6,13 +6,11 @@
 #' @param path Path to create site
 #' @param open Open new site after creation?
 #' @param rstudio Create RStudio project?
-#' @param publish_dir Folder to publish to (typically "public" or "docs")
 #' @export
 create_hugodown_slum <- function(
   path = ".",
   open = rlang::is_interactive(),
-  rstudio = rstudioapi::isAvailable(),
-  publish_dir = "public"
+  rstudio = rstudioapi::isAvailable()
 ) {
 
   # Use the most recent version of Hugo that the theme was tested with
@@ -52,13 +50,11 @@ create_hugodown_slum <- function(
   slum_patch_rmd_dir(fs::path(path, "themes", "slum", "archetypes"))
   slum_patch_rmd_dir(fs::path(path, "content"))
   slum_patch_head_custom(path)
-  slum_patch_config(path, publish_dir)
+  slum_patch_config(path)
 
   # Build rmd posts/projects to hugo-flavoured md and then build
-  usethis::ui_done("Starting site render")
+  usethis::ui_done("Knitting .Rmd files to .md")
   lapply(hugodown::site_outdated(site = path), slum_build_post)
-  hugodown::hugo_build(site = path, dest = publish_dir)
-  usethis::ui_done("Completed site render")
 
 
   # Open in a new session if requested
@@ -75,7 +71,7 @@ slum_build_post <- function(path) {
   split_path <- fs::path_split(path)[[1]]
   local_root <- which(split_path == "content")
   tidy_path <- fs::path_join(split_path[local_root:(length(split_path))])
-  usethis::ui_line(paste("    rendering", tidy_path))
+  usethis::ui_line(paste("    ", tidy_path))
   suppressWarnings(rmarkdown::render(path, quiet = TRUE))
 }
 
@@ -175,12 +171,10 @@ slum_patch_head_custom <- function(path) {
 # Patches the config.toml file for the example site. Specifically, the
 # config must allow the markdown renderer to pass raw html. Also needs to
 # specify the publishDir
-slum_patch_config <- function(path, publish_dir) {
+slum_patch_config <- function(path) {
 
   config <- fs::path(path, "config.toml")
   lines <- brio::read_lines(config)
-
-  lines[lines == 'publishDir = "docs"'] <- paste0('publishDir = "', publish_dir, '"')
 
   # append to existing
   brio::write_lines(c(
