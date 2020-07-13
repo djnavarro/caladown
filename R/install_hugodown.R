@@ -123,6 +123,8 @@ slum_write_custom_head <- function(path) {
 }
 
 
+# Patches the config.toml file for the example site. Specifically, the
+# config must allow the markdown renderer to pass raw html
 slum_patch_config <- function(path) {
 
   config <- fs::path(path, "config.toml")
@@ -132,29 +134,25 @@ slum_patch_config <- function(path) {
   brio::write_lines(c(
     lines,
     '',
-    '# needed for hugodown',
+    '',
+    '# A hugodown site requires that Hugo be explicitly',
+    '# told how to handle markup. Because hugodown generates',
+    '# the raw HTML for R code chunks, the "unsafe = true"',
+    '# setting is required, or else Hugo will not allow the',
+    '# raw HTML to be passed from the .md file to the .html',
+    '# file. See:',
+    '# https://gohugo.io/getting-started/configuration-markup',
     '[markup]',
     '  defaultMarkdownHandler = "goldmark"',
     '  [markup.goldmark]',
     '    [markup.goldmark.renderer]',
-    '      unsafe = true  # Enable user to embed HTML snippets in Markdown content.',
-    '  [markup.highlight]',
-    '    codeFences = true',
-    '  [markup.tableOfContents]',
-    '    startLevel = 2',
-    '    endLevel = 3',
+    '      unsafe = true',
     ''
   ), config)
-
-
 }
 
 
-
-
-
-
-
+# Copies all files in a folder (mirrors internal function in hugodown)
 dir_copy_contents <- function(path, new_path) {
   for (path in fs::dir_ls(path)) {
     if (fs::is_file(path)) {
