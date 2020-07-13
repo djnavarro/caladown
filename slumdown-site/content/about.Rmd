@@ -1,0 +1,11 @@
+---
+output: hugodown::md_document
+title: About
+type: "generic_page"
+---
+
+# About the author
+
+[Danielle Navarro](https://djnavarro.net) is a computational cognitive scientist and Associate Professor at the University of New South Wales. Her research focuses on human reasoning and statistical methods in the behavioural sciences. On occasions she has been known to masquerade as a part-time [statistician](https://learningstatisticswithr.com), [data scientist](https://robust-tools.djnavarro.net) and an unskilled [software developer](https://github.com/djnavarro). She is also a [devoted R-Lady](https://rladiessydney.org), an [aspiring generative artist](https://art.djnavarro.net), and at times a [general purpose nuisance](https://twitter.com/djnavarro). She is prone to describing herself in the third person in biographies, but is willing to admit that it’s super weird.
+
+

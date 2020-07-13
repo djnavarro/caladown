@@ -1,0 +1,253 @@
+
+/* font size and family */
+html {font-size: 15px;}
+body {font-family: et-book, Palatino, "Palatino Linotype", serif;}
+code {font-family: Monaco, monospace;}
+
+/* main text elements */
+body {
+  background-color: var(--pagecolour);
+  color: var(--maintext);
+  counter-reset: sidenote-counter;
+  margin: 0;
+}
+.main-content {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  max-width: 900px;
+}
+p, ol, ul, code {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+p {
+  margin-top: 1.4rem;
+  margin-bottom: 1.4rem;
+  padding-right: 0;
+  vertical-align: baseline;
+}
+
+/* ------ styling for blog post list ------  */
+
+/* the outer container takes up the whole space */
+.prettylistcontainer {
+  width: 100%;
+  display: table;
+}
+
+/* the list itself is only 85% of the width */
+ul.prettylist {
+  list-style-type: none;
+  list-style-image: none;
+  list-style-position: inside;
+  width: 100%;
+}
+li.prettylist {
+  width: 85%;
+}
+p.prettylist {
+  padding-left: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-right: 15%;
+  float: left;
+}
+span.prettylistdate{
+  color: var(--faded);
+  font-size: 1rem;
+}
+
+/* styling for the other post lists */
+span.flatlistdate{
+  color: var(--faded);
+  font-size: 1rem;
+}
+
+/* headings */
+h1 {
+  font-weight: 400;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  font-size: 2.7rem;
+  line-height: 1;
+}
+h2 {
+  font-style: italic;
+  font-weight: 400;
+  border-bottom-style: dotted;
+  border-bottom-color: var(--faded);
+  margin-top: 4rem;
+  margin-bottom: 1.4rem;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+h3 {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.4rem;
+  line-height: 1;
+}
+
+/* blockquotes */
+blockquote {
+  background: none;
+  color: var(--faded);
+  font-style: italic;
+  font-weight: bold;
+  padding: 3px 1em 3px;
+  max-width: 800px;
+}
+
+
+/* code formatting */
+pre {
+  background: none;
+  margin-left: 5%;
+  padding: 1em;
+  overflow-x: auto;
+  border-width: 1px;
+  border-color: var(--lowlight);
+  border-style: dotted;
+}
+code {
+  font-size: 1.2rem;
+  color: var(--lowlight);
+  background: none;
+  max-width: 800px;
+}
+
+/* syntax highlighting */
+.hljs,.hljs-subst {
+  color: var(--maintext);
+}
+
+.hljs-keyword,
+.hljs-built_in,
+.hljs-function{
+  color: var(--lowlight);
+}
+
+.hljs-comment {
+  color: var(--faded);
+  font-style: italic;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-literal {
+  color: var(--faded);
+  font-style: bold;
+}
+
+
+
+
+
+/* links */
+a:link, a:visited {
+  color: var(--highlight);
+  text-decoration: underline;
+}
+
+
+
+
+/* horizontal rule styling */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--faded);
+  margin: 1em 0;
+  padding: 0;
+}
+
+
+
+
+/* header and footer areas */
+.menu {
+  padding-left: 0px;
+  padding-bottom: 5px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--faded);
+}
+.menu li { display: inline-block; }
+.article-meta, .menu a {
+  text-decoration: none;
+  background: none;
+  padding-left: 5%;
+  padding: 5px;
+}
+.menu, .article-meta { text-align: left; }
+.title { font-size: 1.1em; }
+footer {
+  text-align: center;
+  color: var(--faded);
+  display:block;
+}
+footer a:visited, footer a:link {
+  text-decoration: none;
+  font-style: normal;
+  color: var(--faded)
+}
+.menu a:visited, .menu a:link {
+  text-decoration: none;
+  font-style: normal;
+  color: var(--faded)
+}
+
+
+
+/* miscellaneous elements */
+img, iframe, video { max-width: 100%; }
+main { hyphens: auto; }
+
+
+
+/* table formatting */
+table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+thead, tfoot, tr:nth-child(even) { background: #eee; }
+
+
+
+/* formatting for header images */
+.article-header {
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
+  position: relative; /* Required for caption positioning */
+  clear: both;
+}
+.article-header-caption {
+  background-color: var(--pagecolour);
+  color: var(--faded);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+.article-header-profile {
+  background-color: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 70%;
+}
+.article-banner {
+  width: 100%;
+}

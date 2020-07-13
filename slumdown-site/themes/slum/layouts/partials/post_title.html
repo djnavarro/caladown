@@ -1,0 +1,7 @@
+<div>
+  <h1>{{ .Title | markdownify }}</h1>
+  <h3>
+    {{ with .Params.author }}by {{.}}{{ end }}{{ if (gt .Params.date 0) }}, {{ .Date.Format "02 Jan 2006" }}{{ end }}
+  </h3>
+  <br><br>
+</div>

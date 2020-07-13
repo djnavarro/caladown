@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partial "header.html" . }}
+
+  <body>
+    {{ partial "header_image.html" . }}
+
+    <div class="main-content">
+      {{ partial "menu_strip.html" . }}
+      {{ partial "post_title.html" .}}
+
+      <main>
+        {{ .Content }}
+      </main>
+
+      {{ partial "footer.html" . }}
+
+    </div>
+  </body>
+</html>

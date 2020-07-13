@@ -1,0 +1,20 @@
+{{/* Site default header image */}}
+{{ if .Site.Params.SiteHeader }}
+<div class="article-header">
+  {{ $img_src := urls.Parse .Site.Params.SiteHeader }}
+  {{ if $img_src.Scheme }}
+  <img src="{{ .Site.Params.SiteHeader }}" class="article-banner" itemprop="image" alt="">
+  {{ else }}
+  <img src="{{ (printf "/%s" .Site.Params.SiteHeader) | relURL }}" class="article-banner" itemprop="image" alt="">
+  {{ end }}
+
+  {{ $img_src2 := urls.Parse .Site.Params.SiteProfile }}
+  {{ if $img_src2.Scheme }}
+  <img src="{{ .Site.Params.SiteProfile }}" class = "article-header-profile">
+  {{ else }}
+  <img src="{{ (printf "/%s" .Site.Params.SiteProfile) | relURL }}" class="article-header-profile" itemprop="image" alt="">
+  {{ end }}
+
+
+</div>
+{{end}}

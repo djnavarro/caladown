@@ -1,0 +1,11 @@
+<!-- add the twitter card and open graph tags -->
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="{{.Title}}">
+<meta property="og:description" content="{{.Summary}}">
+<meta property="og:image" content="{{.Site.Params.TwitterImage}}">
+
+<!-- css for syntax highlighting -->
+<link rel='stylesheet' href='{{ "css/highlight.css" | relURL }}' title='hl'>
+{{ range .Params.html_dependencies }}
+  {{ . | safeHTML }}
+{{ end }}

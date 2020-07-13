@@ -1,0 +1,8 @@
+/* light colour scheme */
+:root {
+  --pagecolour: #eeeeee;
+  --maintext: #111111;
+  --faded: #999999;
+  --highlight: #0000dd;
+  --lowlight: #8a2be2;
+}

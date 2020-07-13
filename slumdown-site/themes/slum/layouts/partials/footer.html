@@ -1,0 +1,17 @@
+<footer>
+  <!-- highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+
+  <script>
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  </script>
+
+  {{ partial "foot_custom.html" . }}
+  {{ with .Site.Params.footer }}
+  <br/><br/>
+  {{ . | markdownify }}
+  <br/><br/>
+  {{ end }}
+</footer>

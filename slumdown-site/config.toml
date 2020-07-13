@@ -1,0 +1,113 @@
+
+# The config file is written using TOML, which stands for "Tom's Obvious,
+# Minimal Language". See: https://github.com/toml-lang/toml
+
+# The URL for your website. It should end with a trailing slash,
+# e.g. "https://example.com/". If you're planning to deploy on
+# GitHub pages the way I've done for the example site at
+# https://djnavarro.github.io/hugo-slum/, then you can do something
+# like this:
+#
+#    baseurl = "/hugo-slum/"
+#
+baseurl = "/"
+
+# Rewrite URLs to be relative to the current content.
+relativeurls = true
+
+# Default is "public", but if you're using GitHub pages you
+# need to point this to "docs".
+publishDir = "docs"
+
+# These settings specify the title for your blog, and the name of
+# the Hugo theme that it uses.
+title = "A slum blog"
+theme = "slum"
+
+# What format should the permalinks take?
+[permalinks]
+    post = "/post/:slug/"
+    project = "/project/:slug/"
+#
+# Alternative version:
+#   post = "/post/:year/:month/:day/:slug/"
+#   project = "/project/:year/:month/:day/:slug/"
+
+
+# These settings are used to specify the links in the main
+# navigation bar. Each item has a "name" (the link text), a
+# "url" (path to the page), and a "weight" (the order).
+# Something to keep in mind for new users: you won't find
+# specific files that correspond to all of these pages. See
+# the documentation for an explanation of where they come from
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+[[menu.main]]
+    name = "Posts"
+    url = "/post/"
+    weight = 3
+[[menu.main]]
+    name = "Projects"
+    url = "/project/"
+    weight = 4
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 5
+
+
+
+# Parameters used throughout the site.
+#
+# - "siteHeader":   banner image at the top of the page
+# - "siteProfile":  profile image centered within the banner
+# - "description":  description of the site
+# - "footer":       content of the page footer
+# - "twitterImage": image to include within a twitter card
+# - "colorPage":    default page background color
+# - "colorText":    default text color for the page
+# - "colorFade":    default color to use when 'faded' text is needed
+# - "colorAccent1": default value for the first accent color (the "highlight")
+# - "colorAccent2": default value for the second accent color (the "lowlight")
+
+[params]
+    siteHeader = "header/banner.png"
+    siteProfile = "header/profile.png"
+    description = "A website of one's own"
+    footer = "A footer of one's own"
+    twitterImage = "https://djnavarro.github.io/hugo-slum/header/slumdown.png"
+    colorPage = "#333333"    # background colour
+    colorText = "#dddddd"    # main text colour
+    colorFade = "#888888"    # faded text colour
+    colorAccent1 = "#ff69b4" # first accent colour ("highlight")
+    colorAccent2 = "#ba68c8" # second accent colour ("lowlight")
+
+
+# additional settings
+languageCode = "en-us"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+preserveTaxonomyNames = true
+footnotereturnlinkcontents = "↩"
+
+
+# A hugodown site requires that Hugo be explicitly
+# told how to handle markup. Because hugodown generates
+# the raw HTML for R code chunks, the "unsafe = true"
+# setting is required, or else Hugo will not allow the
+# raw HTML to be passed from the .md file to the .html
+# file. See:
+# https://gohugo.io/getting-started/configuration-markup
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+

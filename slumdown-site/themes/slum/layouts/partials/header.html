@@ -1,0 +1,20 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+
+  <style>
+  	:root {
+  		--pagecolour: {{ $.Param "colorPage" }};
+  		--maintext: {{ $.Param "colorText" }};
+  		--faded: {{ $.Param "colorFade" }};
+  		--highlight: {{ $.Param "colorAccent1" }};
+  		--lowlight: {{ $.Param "colorAccent2" }};
+	}
+  </style>
+
+  <link rel="stylesheet" href="{{ "/css/et_book.css" | relURL }}" />
+  <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
+
+  {{ partial "head_custom.html" . }}
+</head>
