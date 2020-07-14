@@ -1,11 +1,12 @@
 
 from <- here::here("misc", "base.png")
-to <- here::here("misc", "slumdown_hex.png")
-text_label <- "slumdown.djnavarro.net"
+to <- here::here("misc", "caladown_hex.png")
+also_to <- here::here("misc", "caladown.png")
+text_label <- "caladown.djnavarro.net"
 text_size <- 50
 text_colour <- "white"
 border_opacity <- 60
-border_colour <- "grey20"
+border_colour <- "grey70"
 
 sticker_innertext <- function(image, text_label, text_colour, text_size) {
   width <- magick::image_info(image)$width
@@ -34,5 +35,9 @@ image <- jasmines:::sticker_border(image, opacity = border_opacity,
 image <- jasmines:::sticker_annotate(image, text_label = text_label,
                                      text_colour = text_colour,
                                      text_size = text_size)
-image <- sticker_innertext(image, "slumdown", "white", 250)
+image <- sticker_innertext(image, "caladown", "white", 250)
 magick::image_write(image, path = to)
+
+image <- jasmines:::sticker_rescale(image, hex_width = 600)
+magick::image_write(image, path = also_to)
+
