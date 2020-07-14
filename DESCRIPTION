@@ -1,22 +1,22 @@
-Package: slumdown
+Package: caladown
 Type: Package
-Title: A Hugo Theme for Blogdown
-Version: 0.2.0
+Title: A Hugo Theme for R users
+Version: 0.2.1
 Authors@R: 
     person(given = "Danielle",
            family = "Navarro",
            role = c("aut", "cre"),
            email = "d.navarro@unsw.edu.au",
            comment = c(ORCID = "0000-0001-7648-6578"))
-Description: Provides a simple theme for writing a blog in blogdown. The 
-    slumdown package contains wrapper functions to install the slum theme for
-    Hugo, convenience functions for customising the blog from within R, and a
-    mechanism to generate ggplot2 plots that match the blog colour palette.
+Description: Provides a simple theme for building websites with blogdown or 
+    hugodown. The caladown package contains wrapper functions to install the 
+    calade theme for Hugo, ensures that the user has the necessary R packages
+    required to build the site.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/djnavarro/slumdown
-BugReports: https://github.com/djnavarro/slumdown/issues
+URL: https://github.com/djnavarro/caladown
+BugReports: https://github.com/djnavarro/caladown/issues
 RoxygenNote: 7.1.0
 Imports: 
     blogdown,

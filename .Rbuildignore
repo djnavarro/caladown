@@ -6,11 +6,9 @@
 ^\.Rproj\.user$
 ^codecov\.yml$
 ^README.Rmd$
-^README_files$
-^hugo-slum$
+^README_fil
 ^misc$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
-^\.workbch$
-^slumdown\.Rproj$
+^caladown\.Rproj$

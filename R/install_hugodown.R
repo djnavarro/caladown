@@ -1,13 +1,13 @@
-#' Create a hugodown slum site
+#' Create a calade site using hugodown
 #'
 #' @description
-#' Create site with hugodown
+#' Create a calade site using hugodown
 #'
 #' @param path Path to create site
 #' @param open Open new site after creation?
 #' @param rstudio Create RStudio project?
 #' @export
-create_hugodown_slum <- function(
+create_hugodown_calade <- function(
   path = ".",
   open = rlang::is_interactive(),
   rstudio = rstudioapi::isAvailable()
@@ -26,35 +26,35 @@ create_hugodown_slum <- function(
   usethis::use_git_ignore(c("resources", "public"))
 
   # Download Hugo theme and extract to temporary folder
-  usethis::ui_done("Downloading slum theme")
-  exdir <- slum_download_theme()
+  usethis::ui_done("Downloading calade theme")
+  exdir <- calade_download_theme()
 
   # Copy the example site into the new location
   usethis::ui_done("Copying site components")
   dir_copy_contents(fs::path(exdir, "exampleSite"), path)
 
-  # Copy the slum theme into the new location and delete
+  # Copy the calade theme into the new location and delete
   # the unnecessary "exampleSite" subdirectory
-  usethis::ui_done("Installing slum theme")
-  theme_path <- fs::dir_create(fs::path(path, "themes", "slum"))
+  usethis::ui_done("Installing calade theme")
+  theme_path <- fs::dir_create(fs::path(path, "themes", "calade"))
   dir_copy_contents(exdir, theme_path)
   fs::dir_delete(fs::path(theme_path, "exampleSite"))
 
   # Patch example site
   usethis::ui_done("Patching example site")
-  slum_write_hugodown(path)
-  slum_write_sentinel(path)
-  slum_write_readme(path)
-  slum_write_css(path)
-  slum_rename_default_archetype(path)
-  slum_patch_rmd_dir(fs::path(path, "themes", "slum", "archetypes"))
-  slum_patch_rmd_dir(fs::path(path, "content"))
-  slum_patch_head_custom(path)
-  slum_patch_config(path)
+  calade_write_hugodown(path)
+  calade_write_sentinel(path)
+  calade_write_readme(path)
+  calade_write_css(path)
+  calade_rename_default_archetype(path)
+  calade_patch_rmd_dir(fs::path(path, "themes", "calade", "archetypes"))
+  calade_patch_rmd_dir(fs::path(path, "content"))
+  calade_patch_head_custom(path)
+  calade_patch_config(path)
 
   # Build rmd posts/projects to hugo-flavoured md and then build
   usethis::ui_done("Knitting .Rmd files to .md")
-  lapply(hugodown::site_outdated(site = path), slum_build_post)
+  lapply(hugodown::site_outdated(site = path), calade_build_post)
 
 
   # Open in a new session if requested
@@ -67,7 +67,7 @@ create_hugodown_slum <- function(
 
 # helpers -----------------------------------------------------------------
 
-slum_build_post <- function(path) {
+calade_build_post <- function(path) {
   split_path <- fs::path_split(path)[[1]]
   local_root <- which(split_path == "content")
   tidy_path <- fs::path_join(split_path[local_root:(length(split_path))])
@@ -77,21 +77,21 @@ slum_build_post <- function(path) {
 
 
 # Downloads and extracts the Hugo theme
-slum_download_theme <- function() {
+calade_download_theme <- function() {
   zip <- curl::curl_download(
-    "https://github.com/djnavarro/hugo-slum/archive/master.zip",
+    "https://github.com/djnavarro/hugo-calade/archive/master.zip",
     fs::file_temp("hugodown")
   )
   exdir <- fs::file_temp("hugodown")
   utils::unzip(zip, exdir = exdir)
-  exdir <- fs::path(exdir, "hugo-slum-master")
+  exdir <- fs::path(exdir, "hugo-calade-master")
   return(exdir)
 }
 
 
 # Convert md post archetypes to Rmd
-slum_rename_default_archetype <- function(path) {
-  dir_path <- fs::path(path, "themes", "slum", "archetypes")
+calade_rename_default_archetype <- function(path) {
+  dir_path <- fs::path(path, "themes", "calade", "archetypes")
   new_path <- fs::path(dir_path, "default.Rmd")
   fs::file_move(
     path = fs::path(dir_path, "default.md"),
@@ -101,7 +101,7 @@ slum_rename_default_archetype <- function(path) {
 
 
 # Patch the yaml header in an rmd file
-slum_patch_rmd <- function(path) {
+calade_patch_rmd <- function(path) {
   lines <- brio::read_lines(path)
   lines <- c(lines[1],
              "output: hugodown::md_document",
@@ -112,43 +112,43 @@ slum_patch_rmd <- function(path) {
 
 
 # Patch all rmd files in a folder
-slum_patch_rmd_dir <- function(path) {
+calade_patch_rmd_dir <- function(path) {
   rmd_files <- fs::dir_ls(path = path, glob = "*.Rmd", recurse = TRUE)
-  lapply(rmd_files, slum_patch_rmd)
+  lapply(rmd_files, calade_patch_rmd)
 }
 
 
 # Writes the hugodown yaml file
-slum_write_hugodown <- function(path) {
+calade_write_hugodown <- function(path) {
   opts <- list(hugo_version = "0.66.0")
   yaml::write_yaml(opts, fs::path(path, "_hugodown.yaml"))
 }
 
 
 # Writes the readme file
-slum_write_readme <- function(path) {
-  fs::file_copy(fs::path_package("slumdown", "slum", "README.md"), path)
+calade_write_readme <- function(path) {
+  fs::file_copy(fs::path_package("caladown", "calade", "README.md"), path)
 }
 
 
 # Writes the sentinel file
-slum_write_sentinel <- function(path) {
-  fs::file_copy(fs::path_package("slumdown", "slum", "index.Rmd"), path)
+calade_write_sentinel <- function(path) {
+  fs::file_copy(fs::path_package("caladown", "calade", "index.Rmd"), path)
 }
 
 
 # Copies the highlight.css style file across
-slum_write_css <- function(path) {
+calade_write_css <- function(path) {
   fs::dir_create(fs::path(path, "static", "css"))
   fs::file_copy(
-    path = fs::path_package("slumdown", "slum", "highlight.css"),
+    path = fs::path_package("caladown", "calade", "highlight.css"),
     new_path = fs::path(path, "static", "css")
   )
 }
 
 
 # Inserts link to highlight.css file in head_custom.html
-slum_patch_head_custom <- function(path) {
+calade_patch_head_custom <- function(path) {
 
   # (is this necessary?)
   head <- fs::path(path, "layouts", "partials", "head_custom.html")
@@ -171,7 +171,7 @@ slum_patch_head_custom <- function(path) {
 # Patches the config.toml file for the example site. Specifically, the
 # config must allow the markdown renderer to pass raw html. Also needs to
 # specify the publishDir
-slum_patch_config <- function(path) {
+calade_patch_config <- function(path) {
 
   config <- fs::path(path, "config.toml")
   lines <- brio::read_lines(config)
