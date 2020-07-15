@@ -1,5 +1,8 @@
 test_that("hugodown install works", {
 
+  # install hugo if need be
+  hugodown::hugo_install("0.66.0")
+
   # check that something installs
   path <- tempfile()
   result <- try(create_hugodown_calade(path))
