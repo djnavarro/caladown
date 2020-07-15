@@ -30,8 +30,8 @@ example site at:
 There are two components to caladown, a [Hugo
 theme](https://github.com/djnavarro/hugo-calade) and an [R
 package](https://github.com/djnavarro/caladown). The simplest way to get
-started is simply to download the R package from GitHub using the
-following command:
+started is to download the R package from GitHub using the following
+command:
 
 ``` r
 remotes::install_github("djnavarro/caladown")
