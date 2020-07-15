@@ -28,7 +28,8 @@ Imports:
     brio,
     fs,
     rappdirs,
-    rmarkdown
+    rmarkdown,
+    yaml
 Suggests: 
     testthat (>= 2.1.0),
     covr,
