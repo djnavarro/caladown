@@ -5,6 +5,10 @@ Danielle Navarro
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.com/djnavarro/caladown.svg?branch=master)](https://travis-ci.com/djnavarro/caladown)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 <!--<img src="README_files/caladown.png" width="30%" align="right" />-->
