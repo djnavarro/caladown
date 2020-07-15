@@ -31,7 +31,10 @@ Imports:
     rmarkdown,
     yaml,
     thematic,
-    ggplot2
+    ggplot2,
+    scico,
+    dplyr,
+    tibble
 Remotes:
     r-lib/hugodown,
     rstudio/thematic

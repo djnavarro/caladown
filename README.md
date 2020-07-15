@@ -11,6 +11,8 @@ status](https://travis-ci.com/djnavarro/caladown.svg?branch=master)](https://tra
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/caladown)](https://CRAN.R-project.org/package=caladown)
+[![Codecov test
+coverage](https://codecov.io/gh/djnavarro/caladown/branch/master/graph/badge.svg)](https://codecov.io/gh/djnavarro/caladown?branch=master)
 <!-- badges: end -->
 
 <!--<img src="README_files/caladown.png" width="30%" align="right" />-->
