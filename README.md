@@ -9,6 +9,8 @@ Danielle Navarro
 status](https://travis-ci.com/djnavarro/caladown.svg?branch=master)](https://travis-ci.com/djnavarro/caladown)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/caladown)](https://CRAN.R-project.org/package=caladown)
 <!-- badges: end -->
 
 <!--<img src="README_files/caladown.png" width="30%" align="right" />-->
