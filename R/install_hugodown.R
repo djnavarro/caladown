@@ -14,7 +14,7 @@ create_hugodown_calade <- function(
 ) {
 
   # Use the most recent version of Hugo that the theme was tested with
-  hugodown:::hugo_locate("0.66.0")
+  hugodown::hugo_locate("0.66.0")
 
   # During site creation process treat project as the new site
   fs::dir_create(path)
