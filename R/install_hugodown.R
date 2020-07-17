@@ -14,7 +14,11 @@ create_hugodown_calade <- function(
 ) {
 
   # Use the most recent version of Hugo that the theme was tested with
+  # (or throw an error if it cannot be found)
   hugodown::hugo_locate("0.66.0")
+
+  # Check pandoc version. Throw error if none found, warn if below 2.1
+  pandoc_check("2.1")
 
   # During site creation process treat project as the new site
   fs::dir_create(path)
@@ -207,5 +211,29 @@ dir_copy_contents <- function(path, new_path) {
       fs::dir_copy(path, fs::path(new_path, fs::path_file(path)))
     }
   }
+}
+
+
+# Check that we have pandoc. I suspect Hugodown will address this
+# when its done, but for now I'll monitor it here.
+pandoc_check <- function(version = NULL) {
+
+  # stop if no pandoc
+  if(!rmarkdown::pandoc_available()) {
+    stop("Could not find a pandoc installation", call. = FALSE)
+  }
+
+  # return early if no pandoc version check is required
+  if(is.null(version)) {
+    return(invisible(NULL))
+  }
+
+  # throw warning if pandoc versions too low (preferred to error)
+  inst_version <- rmarkdown::pandoc_version()
+  version <- as.numeric_version(version)
+  if(inst_version < version) {
+    warning("Installation of pandoc is version ", inst_version, ". Caladown sites may fail to build for pandoc versions below ", version)
+  }
+
 }
 
