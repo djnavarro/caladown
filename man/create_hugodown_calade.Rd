@@ -6,12 +6,15 @@
 \usage{
 create_hugodown_calade(
   path = ".",
+  knit = TRUE,
   open = rlang::is_interactive(),
   rstudio = rstudioapi::isAvailable()
 )
 }
 \arguments{
 \item{path}{Path to create site}
+
+\item{knit}{Should hugodown attempt to knit R markdown files?}
 
 \item{open}{Open new site after creation?}
 

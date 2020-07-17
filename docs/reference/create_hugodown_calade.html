@@ -119,6 +119,7 @@
 
     <pre class="usage"><span class='fu'>create_hugodown_calade</span>(
   <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>knit</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>open</span> <span class='kw'>=</span> <span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/is_interactive.html'>is_interactive</a></span>(),
   <span class='kw'>rstudio</span> <span class='kw'>=</span> <span class='kw pkg'>rstudioapi</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rstudioapi/man/isAvailable.html'>isAvailable</a></span>()
 )</pre>
@@ -129,6 +130,10 @@
     <tr>
       <th>path</th>
       <td><p>Path to create site</p></td>
+    </tr>
+    <tr>
+      <th>knit</th>
+      <td><p>Should hugodown attempt to knit R markdown files?</p></td>
     </tr>
     <tr>
       <th>open</th>

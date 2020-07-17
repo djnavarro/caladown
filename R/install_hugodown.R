@@ -4,11 +4,13 @@
 #' Create a calade site using hugodown
 #'
 #' @param path Path to create site
+#' @param knit Should hugodown attempt to knit R markdown files?
 #' @param open Open new site after creation?
 #' @param rstudio Create RStudio project?
 #' @export
 create_hugodown_calade <- function(
   path = ".",
+  knit = TRUE,
   open = rlang::is_interactive(),
   rstudio = rstudioapi::isAvailable()
 ) {
@@ -57,9 +59,10 @@ create_hugodown_calade <- function(
   calade_patch_config(path)
 
   # Build rmd posts/projects to hugo-flavoured md and then build
-  usethis::ui_done("Knitting .Rmd files to .md")
-  lapply(hugodown::site_outdated(site = path), calade_build_post)
-
+  if(knit == TRUE) {
+    usethis::ui_done("Knitting .Rmd files to .md")
+    lapply(hugodown::site_outdated(site = path), calade_build_post)
+  }
 
   # Open in a new session if requested
   if (open) {
