@@ -1,7 +1,7 @@
 Package: caladown
 Type: Package
 Title: A Hugo Theme for R users
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: 
     person(given = "Danielle",
            family = "Navarro",
@@ -17,7 +17,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/djnavarro/caladown
 BugReports: https://github.com/djnavarro/caladown/issues
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Imports: 
     blogdown,
     hugodown,
@@ -34,7 +34,8 @@ Imports:
     ggplot2,
     scico,
     dplyr,
-    tibble
+    tibble,
+    rlang
 Remotes:
     r-lib/hugodown,
     rstudio/thematic

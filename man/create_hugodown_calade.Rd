@@ -2,7 +2,7 @@
 % Please edit documentation in R/install_hugodown.R
 \name{create_hugodown_calade}
 \alias{create_hugodown_calade}
-\title{Create a calade site using hugodown}
+\title{Create a hugo calade site}
 \usage{
 create_hugodown_calade(
   path = ".",
@@ -21,5 +21,5 @@ create_hugodown_calade(
 \item{rstudio}{Create RStudio project?}
 }
 \description{
-Create a calade site using hugodown
+Create a hugo calade site
 }
