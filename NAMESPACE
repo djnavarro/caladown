@@ -2,5 +2,6 @@
 
 export(create_blogdown_calade)
 export(create_hugodown_calade)
+export(create_hugodown_diziet)
 import(fs)
 import(rlang)
