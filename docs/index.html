@@ -22,6 +22,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -34,18 +36,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">caladown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -53,7 +49,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/djnavarro/caladown/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -74,23 +70,26 @@
 <a href="#the-caladown-package" class="anchor"></a>The caladown package</h1></div>
 <p>Danielle Navarro 11 Jul 2020</p>
 <!-- badges: start -->
-<p><a href="https://travis-ci.com/djnavarro/caladown"><img src="https://travis-ci.com/djnavarro/caladown.svg?branch=master" alt="Travis build status"></a> <a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a> <a href="https://CRAN.R-project.org/package=caladown"><img src="https://www.r-pkg.org/badges/version/caladown" alt="CRAN status"></a> <a href="https://codecov.io/gh/djnavarro/caladown?branch=master"><img src="https://codecov.io/gh/djnavarro/caladown/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
+<p><a href="https://travis-ci.com/djnavarro/caladown" class="external-link"><img src="https://travis-ci.com/djnavarro/caladown.svg?branch=master" alt="Travis build status"></a> <a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a> <a href="https://CRAN.R-project.org/package=caladown" class="external-link"><img src="https://www.r-pkg.org/badges/version/caladown" alt="CRAN status"></a> <a href="https://codecov.io/gh/djnavarro/caladown?branch=master" class="external-link"><img src="https://codecov.io/gh/djnavarro/caladown/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
 <!--<img src="README_files/caladown.png" width="30%" align="right" />-->
-<p>The goal of caladown is to allow R users to create lightweight websites powered by Hugo and is designed to be compatible with both <a href="https://hugodown.r-lib.org/">hugodown</a> and <a href="https://bookdown.org/yihui/blogdown/">blogdown</a>, and allows users to generate graphics that match the visual style of the site via the <a href="https://rstudio.github.io/thematic/">thematic</a> package. You can see an example site at:</p>
-<p><a href="https://djnavarro.github.io/hugo-calade/" class="uri">https://djnavarro.github.io/hugo-calade/</a></p>
-<p>There are two components to caladown, a <a href="https://github.com/djnavarro/hugo-calade">Hugo theme</a> and an <a href="https://github.com/djnavarro/caladown">R package</a>. The simplest way to get started is to download the R package from GitHub using the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"djnavarro/caladown"</span>)</pre></div>
+<p>The goal of caladown is to allow R users to create lightweight websites powered by Hugo and is designed to be compatible with both <a href="https://hugodown.r-lib.org/" class="external-link">hugodown</a> and <a href="https://bookdown.org/yihui/blogdown/" class="external-link">blogdown</a>, and allows users to generate graphics that match the visual style of the site via the <a href="https://rstudio.github.io/thematic/" class="external-link">thematic</a> package. You can see an example site at:</p>
+<p><a href="https://djnavarro.github.io/hugo-calade/" class="external-link uri">https://djnavarro.github.io/hugo-calade/</a></p>
+<p>There are two components to caladown, a <a href="https://github.com/djnavarro/hugo-calade" class="external-link">Hugo theme</a> and an <a href="https://github.com/djnavarro/caladown" class="external-link">R package</a>. The simplest way to get started is to download the R package from GitHub using the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"djnavarro/caladown"</span><span class="op">)</span></code></pre></div>
 <p>Hugodown and blogdown are structured differently, so you must choose which system you wish to use at the outset. If you want to use blogdown, you can create a new site as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">caladown</span><span class="kw ns">::</span><span class="fu"><a href="reference/create_blogdown_calade.html">create_blogdown_calade</a></span>(<span class="st">"path_to_blog_folder"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">caladown</span><span class="fu">::</span><span class="fu"><a href="reference/create_blogdown_calade.html">create_blogdown_calade</a></span><span class="op">(</span><span class="st">"path_to_blog_folder"</span><span class="op">)</span></code></pre></div>
 <p>For hugodown, the command is:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">caladown</span><span class="kw ns">::</span><span class="fu"><a href="reference/create_hugodown_calade.html">create_hugodown_calade</a></span>(<span class="st">"path_to_blog_folder"</span>)</pre></div>
-<p>At present these are the only two functions exported by the caladown package (documentation is <a href="https://caladown.djnavarro.net/">here</a>, but very minimal at the moment). For more information, it is probably best to look at the <a href="https://djnavarro.github.io/hugo-calade/post/">tutorial</a> section of the example site.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">caladown</span><span class="fu">::</span><span class="fu"><a href="reference/create_hugodown_calade.html">create_hugodown_calade</a></span><span class="op">(</span><span class="st">"path_to_blog_folder"</span><span class="op">)</span></code></pre></div>
+<p>At present these are the only two functions exported by the caladown package (documentation is <a href="https://caladown.djnavarro.net/" class="external-link">here</a>, but very minimal at the moment). For more information, it is probably best to look at the <a href="https://djnavarro.github.io/hugo-calade/post/" class="external-link">tutorial</a> section of the example site.</p>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li>Browse source code at <br><a href="https://github.com/djnavarro/caladown/">https://​github.com/​djnavarro/​caladown/​</a>
 </li>
@@ -98,30 +97,37 @@
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Danielle Navarro <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7648-6578" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
+
+
 
   </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Danielle Navarro.</p>
+  <p></p>
+<p>Developed by Danielle Navarro.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -129,6 +135,8 @@
 
   
 
+
+  
 
   </body>
 </html>
